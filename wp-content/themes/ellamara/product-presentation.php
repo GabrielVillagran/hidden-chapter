@@ -29,11 +29,17 @@ add_filter('render_block_woocommerce/product-summary', __NAMESPACE__ . '\\produc
 add_filter('render_block_woocommerce/product-price', static function (string $html, array $attributes, \WP_Block $block): string {
     if (!is_product()) { return $html; }
     $id = (int) ($block->context['postId'] ?? get_queried_object_id());
-    if ($id !== get_queried_object_id() || !has_term('marcapaginas', 'product_cat', $id)) { return $html; }
+    if ($id !== get_queried_object_id() || !has_term(['pines', 'marcapaginas'], 'product_cat', $id)) { return $html; }
 
     $product = wc_get_product($id);
-    $pack_price = $product ? $product->get_meta('_ellamara_three_pack_price') : '';
-    if (!is_numeric($pack_price) || (float) $pack_price <= 0 || $product->get_price() === '') { return $html; }
+    if (!$product || $product->get_price() === '') { return $html; }
+    if (has_term('pines', 'product_cat', $id)) {
+        return '<div class="wp-block-woocommerce-product-price ellamara-pin-price">'
+            . wp_kses_post($product->get_price_html()) . '<span class="ellamara-unit-label">por unidad</span></div>';
+    }
+
+    $pack_price = $product->get_meta('_ellamara_three_pack_price');
+    if (!is_numeric($pack_price) || (float) $pack_price <= 0) { return $html; }
 
     return '<dl class="ellamara-bookmark-prices" aria-label="Precios de marcapáginas">'
         . '<div><dt>1 marcapáginas</dt><dd>' . wp_kses_post($product->get_price_html()) . '</dd></div>'
