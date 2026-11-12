@@ -1,6 +1,9 @@
 name: Probar conexión a Hostinger
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/hostinger-check.yml']
 permissions: {}
 jobs:
   connection:
