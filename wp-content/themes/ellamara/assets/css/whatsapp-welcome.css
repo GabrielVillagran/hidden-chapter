@@ -16,6 +16,11 @@
     padding: .6rem 1rem; margin-top: 1.5rem; border-radius: 10px; background: #b08a4a;
     color: #210707; font-size: 1rem; font-weight: 700; text-decoration: none; box-sizing: border-box; }
 .ellamara-whatsapp-link:hover { background: #e3c389; color: #210707; }
+#ellamara-catalog-announcement .ellamara-whatsapp-link {
+    width: 100%;
+    border: 0;
+    cursor: pointer;
+}
 .ellamara-whatsapp-welcome .ellamara-whatsapp-continue { display: block; margin: .5rem auto 0; padding: .5rem;
     min-height: 44px; background: transparent; border: 0; color: #f2ebdd; font: inherit; font-size: .9rem; cursor: pointer; }
 .ellamara-whatsapp-welcome :is(a,button):focus-visible { outline: 3px solid #f2ebdd; outline-offset: 3px; }

@@ -14,7 +14,7 @@ $groups = [
     'Te ayudamos' => [],
     'Políticas' => [],
 ];
-if (function_exists('wc_get_page_id')) {
+if (function_exists('wc_get_page_id') && !(function_exists('\\Ellamara\\Cart\\catalog_only') && \Ellamara\Cart\catalog_only())) {
     foreach (['myaccount' => 'Mi cuenta y pedidos', 'cart' => 'Mi carrito'] as $key => $label) {
         $id = wc_get_page_id($key);
         if ($id > 0 && get_post_status($id) === 'publish') {
