@@ -47,7 +47,7 @@ if ($privacy_id > 0 && get_post_status($privacy_id) === 'publish') {
 <div class="wp-block-group ellamara-footer-identity">
 <!-- wp:site-logo {"width":88,"shouldSyncIcon":false} /-->
 <!-- wp:site-title {"level":0} /-->
-<!-- wp:paragraph --><p>Libros, kits literarios y accesorios para lectores.</p><!-- /wp:paragraph -->
+<!-- wp:paragraph --><p>Libros y accesorios para lectores.</p><!-- /wp:paragraph -->
 </div><!-- /wp:group -->
 <!-- wp:group {"className":"ellamara-footer-column ellamara-footer-contact","layout":{"type":"default"}} -->
 <div class="wp-block-group ellamara-footer-column ellamara-footer-contact">

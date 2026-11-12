@@ -13,6 +13,14 @@ function catalog_only(): bool {
     return CATALOG_ONLY && class_exists('WooCommerce');
 }
 
+function catalog_stock_label(?\WC_Product $product): string {
+    if (!$product || $product->is_in_stock()) {
+        return '';
+    }
+    $label = apply_filters('ellamara_catalog_unavailable_label', 'Agotado por ahora', $product);
+    return '<p class="ellamara-stock-label">' . esc_html($label) . '</p>';
+}
+
 add_action('plugins_loaded', static function (): void {
     if (!catalog_only()) {
         return;
@@ -25,13 +33,23 @@ add_action('plugins_loaded', static function (): void {
 
     add_filter('woocommerce_is_purchasable', '__return_false', PHP_INT_MAX);
     add_filter('woocommerce_variation_is_purchasable', '__return_false', PHP_INT_MAX);
-    add_filter('woocommerce_loop_add_to_cart_link', '__return_empty_string', PHP_INT_MAX);
+    add_filter('woocommerce_loop_add_to_cart_link', static fn ($html, \WC_Product $product): string => catalog_stock_label($product), PHP_INT_MAX, 2);
     add_action('woocommerce_checkout_process', static function (): void {
         wc_add_notice(CATALOG_MESSAGE, 'error');
     });
 
-    foreach (['mini-cart', 'customer-account', 'product-button', 'add-to-cart-form', 'add-to-cart-with-options'] as $block) {
+    foreach (['mini-cart', 'customer-account'] as $block) {
         add_filter('render_block_woocommerce/' . $block, '__return_empty_string', PHP_INT_MAX);
+    }
+    foreach (['product-button', 'add-to-cart-form', 'add-to-cart-with-options'] as $block) {
+        add_filter('render_block_woocommerce/' . $block, static function ($html, array $parsed, \WP_Block $instance): string {
+            if (!empty($instance->context['woocommerce/isDescendantOfAddToCartWithOptions'])) {
+                return '';
+            }
+            $id = (int) ($instance->context['postId'] ?? $parsed['attrs']['productId'] ?? (is_product() ? get_queried_object_id() : 0));
+            $product = $id ? wc_get_product($id) : false;
+            return catalog_stock_label($product ?: null);
+        }, PHP_INT_MAX, 3);
     }
 
     add_action('template_redirect', static function (): void {

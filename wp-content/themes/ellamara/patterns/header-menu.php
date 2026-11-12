@@ -19,7 +19,7 @@ if (function_exists('wc_get_page_id')) {
 // Only link to categories that actually exist; never invent catalog destinations.
 $categories = get_terms([
     'taxonomy' => 'product_cat',
-    'slug' => ['libros', 'merch', 'kits', 'kits-literarios'],
+    'slug' => ['libros', 'merch'],
     'hide_empty' => true,
     'orderby' => 'name',
 ]);
