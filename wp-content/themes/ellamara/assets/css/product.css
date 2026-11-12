@@ -1,19 +1,17 @@
 /* A calm, compact purchase area, with the founders' artwork visible around it. */
-.ellamara-bookmark-prices { display: flex; flex-wrap: wrap; gap: .75rem; margin-block: 0 1.5rem; }
-.ellamara-bookmark-prices > div { display: grid; gap: .25rem; min-width: min(8rem, 100%); padding: .7rem .9rem; border: 1px solid #b08a4a80; border-radius: 10px; background: #330a0a; }
-.ellamara-bookmark-prices > div > span { color: #f2ebdd; font-size: .85rem; }
-.ellamara-bookmark-prices :is(.wp-block-woocommerce-product-price, .wc-block-components-product-price) { margin: 0; }
-.ellamara-bookmark-prices .amount { color: #e3c389; font-size: 1.2rem; font-weight: 700; }
-.ellamara-bookmark-details { padding: clamp(1rem, 3vw, 2rem); }
-.ellamara-bookmark-details h2 { margin-block: 0 1rem; }
-.ellamara-bookmark-collections {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
-    gap: 1rem; max-width: 40rem; padding: 0; margin: 0; list-style: none;
+.ellamara-bookmark-prices {
+    width: 100%; max-width: 24rem; margin: .75rem 0 1.25rem; padding: 0;
+    border: 1px solid #b08a4a65; border-radius: 12px; background: #330a0a; overflow: hidden;
 }
-.ellamara-bookmark-collections li { overflow: hidden; border-radius: 12px; background: #421414; }
-.ellamara-bookmark-collections img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: #f2ebdd; }
-.ellamara-bookmark-collections span { display: block; padding: .75rem 1rem; color: #f2ebdd; font-weight: 650; }
-.ellamara-bookmark-reference { margin-block: 1rem 0; font-size: .85rem; color: #db9ab1; overflow-wrap: anywhere; }
+.ellamara-bookmark-prices > div {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: .3rem 1rem; padding: .65rem 1rem;
+}
+.ellamara-bookmark-prices dt { color: #f2ebdd; font-size: .95rem; }
+.ellamara-bookmark-prices dd { margin: 0 0 0 auto; color: #e3c389; font-weight: 700; font-variant-numeric: tabular-nums; }
+.ellamara-bookmark-prices .amount { white-space: nowrap; }
+.ellamara-bookmark-prices .ellamara-bookmark-offer { border-top: 1px solid #b08a4a45; background: #b08a4a18; }
+.ellamara-bookmark-offer dt { color: #e3c389; font-weight: 650; }
 .single-product .woocommerce-product-gallery img.zoomImg { max-width: none !important; max-height: none !important; object-fit: fill !important; border-radius: 0; background: transparent; }
 .single-product main > .wp-block-columns:has(.wp-block-woocommerce-product-image-gallery) {
   display: grid !important; grid-template-columns: minmax(250px, .75fr) minmax(0, 1.25fr);
@@ -123,5 +121,3 @@
   .single-product form.cart:has(.ellamara-pdp-quantity) > button.single_add_to_cart_button { grid-column: 1 !important; grid-row: auto; margin-top: .25rem !important; }
   .single-product .ellamara-product-help { font-size: .85rem; }
 }
-
-

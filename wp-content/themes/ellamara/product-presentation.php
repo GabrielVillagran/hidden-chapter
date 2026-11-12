@@ -35,10 +35,10 @@ add_filter('render_block_woocommerce/product-price', static function (string $ht
     $pack_price = $product ? $product->get_meta('_ellamara_three_pack_price') : '';
     if (!is_numeric($pack_price) || (float) $pack_price <= 0 || $product->get_price() === '') { return $html; }
 
-    return '<div class="ellamara-bookmark-prices" aria-label="Precios de marcapáginas">'
-        . '<div><span>Por unidad</span>' . $html . '</div>'
-        . '<div><span>Oferta de 3</span><strong>' . wp_kses_post(wc_price((float) $pack_price)) . '</strong></div>'
-        . '</div>';
+    return '<dl class="ellamara-bookmark-prices" aria-label="Precios de marcapáginas">'
+        . '<div><dt>1 marcapáginas</dt><dd>' . wp_kses_post($product->get_price_html()) . '</dd></div>'
+        . '<div class="ellamara-bookmark-offer"><dt>Oferta de 3</dt><dd>' . wp_kses_post(wc_price((float) $pack_price)) . '</dd></div>'
+        . '</dl>';
 }, 30, 3);
 
 add_filter('render_block_core/post-title', static function (string $html, array $block, \WP_Block $instance): string {
