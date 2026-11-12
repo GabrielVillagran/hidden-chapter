@@ -69,8 +69,8 @@ jobs:
             wp-content/plugins/ellamara-suggestions/
           )
           destination="$SSH_TARGET:domains/ellamarastore.com/public_html/"
-          options=(--recursive --checksum --itemize-changes --relative --stats -e "$ssh_command")
-          rsync "${options[@]}" --dry-run "${components[@]}" "$destination"
+          options=(--recursive --checksum --itemize-changes --relative -e "$ssh_command")
+          rsync "${options[@]}" --dry-run --stats "${components[@]}" "$destination"
           if [[ "$MODE" == deploy ]]; then
             ssh "${ssh_options[@]}" -- "$SSH_TARGET" 'set -eu
               umask 077
@@ -80,11 +80,15 @@ jobs:
               tar -czf "$backup" wp-content/themes/ellamara wp-content/plugins/ellamara-cart-controls wp-content/plugins/ellamara-catalog wp-content/plugins/ellamara-contact wp-content/plugins/ellamara-shipping wp-content/plugins/ellamara-suggestions
               tar -tzf "$backup" >/dev/null
               printf "Respaldo creado: %s\n" "${backup##*/}"'
-            rsync "${options[@]}" --delay-updates "${components[@]}" "$destination"
-            pending=$(rsync "${options[@]}" --dry-run --no-stats --out-format='%i %n' "${components[@]}" "$destination")
+            rsync "${options[@]}" --delay-updates --stats "${components[@]}" "$destination"
+          fi
+          pending=$(rsync "${options[@]}" --dry-run --out-format='%i %n' "${components[@]}" "$destination")
+          if [[ "$MODE" == deploy ]]; then
             if [[ -n "$pending" ]]; then
               printf 'La comprobación posterior detectó diferencias:\n%s\n' "$pending"
               exit 1
             fi
             echo 'Archivos desplegados y verificados por contenido.'
+          elif [[ -z "$pending" ]]; then
+            echo 'El contenido de los componentes coincide con Hostinger.'
           fi
