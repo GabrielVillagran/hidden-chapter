@@ -44,7 +44,7 @@ foreach ($copy as $sku => [$intro, $description]) {
     $product = $products[$sku];
     $body = '<p>' . esc_html($description) . '</p>';
     if ($sku === 'EL-MP-ILUSTRADOS') {
-        $body .= '<p>En la oferta de tres puedes combinar diseños de Dragones y Fantasmas.</p>';
+        $body .= '<p>En la oferta de tres por $9.000 COP puedes combinar diseños de Dragones y Fantasmas.</p>';
     }
     if (($args[0] ?? '') === 'apply') {
         $product->set_short_description($intro);
