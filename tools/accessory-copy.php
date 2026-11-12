@@ -42,12 +42,13 @@ foreach ($copy as $sku => [$intro, $description]) {
 
 foreach ($copy as $sku => [$intro, $description]) {
     $product = $products[$sku];
-    $note = $sku === 'EL-MP-ILUSTRADOS'
-        ? 'En la oferta de tres puedes combinar diseños de Dragones y Fantasmas.'
-        : 'Cada unidad incluye un pin. La foto muestra varios diseños de la colección.';
+    $body = '<p>' . esc_html($description) . '</p>';
+    if ($sku === 'EL-MP-ILUSTRADOS') {
+        $body .= '<p>En la oferta de tres puedes combinar diseños de Dragones y Fantasmas.</p>';
+    }
     if (($args[0] ?? '') === 'apply') {
         $product->set_short_description($intro);
-        $product->set_description('<p>' . esc_html($description) . '</p><p>' . esc_html($note) . '</p>');
+        $product->set_description($body);
         $product->save();
     }
     echo wp_json_encode(['sku' => $sku, 'url' => get_permalink($product->get_id())], JSON_UNESCAPED_SLASHES) . PHP_EOL;

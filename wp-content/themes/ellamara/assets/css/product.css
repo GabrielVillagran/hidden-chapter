@@ -13,8 +13,8 @@
 .ellamara-bookmark-prices .ellamara-bookmark-offer { border-top: 1px solid #b08a4a45; background: #b08a4a18; }
 .ellamara-bookmark-offer dt { color: #e3c389; font-weight: 650; }
 .ellamara-pin-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: .2em .4em; }
-.single-product .ellamara-pin-price .ellamara-unit-label { color: #e3c389; font: inherit; font-size: 1.85rem; font-weight: 700; }
-.single-product .ellamara-pin-price .amount { font-weight: 700; }
+.single-product .wp-block-column > .ellamara-pin-price .ellamara-unit-label { color: #e3c389; font-size: .95rem; font-weight: 500; }
+.single-product .wp-block-column > .wp-block-woocommerce-product-price.ellamara-pin-price .amount { font-size: 1.4rem; font-weight: 700; }
 .single-product .woocommerce-product-gallery img.zoomImg { max-width: none !important; max-height: none !important; object-fit: fill !important; border-radius: 0; background: transparent; }
 .single-product main > .wp-block-columns:has(.wp-block-woocommerce-product-image-gallery) {
   display: grid !important; grid-template-columns: minmax(250px, .75fr) minmax(0, 1.25fr);
