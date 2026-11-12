@@ -1,16 +1,25 @@
-name: Probar conexión a Hostinger
+name: Revisar o desplegar Ellamara
 on:
   workflow_dispatch:
+    inputs:
+      mode:
+        description: Acción en Hostinger
+        type: choice
+        options: [preview, deploy]
+        default: preview
   push:
     branches: [main]
     paths: ['.github/workflows/hostinger-check.yml']
 permissions:
   contents: read
+concurrency:
+  group: ellamara-hostinger-production
+  cancel-in-progress: false
 jobs:
   connection:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    timeout-minutes: 5
     env:
       SSH_KEY_BASE64: ${{ secrets.HOSTINGER_SSH_KEY_BASE64 }}
       SSH_TARGET: ${{ secrets.HOSTINGER_SSH_TARGET }}
@@ -20,8 +29,10 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
-      - name: Verificar acceso y mostrar vista previa
+      - name: Comparar archivos y ejecutar el modo elegido
         shell: bash
+        env:
+          MODE: ${{ inputs.mode || 'preview' }}
         run: |
           : "${SSH_KEY_BASE64:?Falta HOSTINGER_SSH_KEY_BASE64}"
           : "${SSH_TARGET:?Falta HOSTINGER_SSH_TARGET}"
@@ -49,12 +60,31 @@ jobs:
           ssh "${ssh_options[@]}" -- "$SSH_TARGET" \
             'cd ~/domains/ellamarastore.com/public_html && test -f wp-load.php && test -d wp-content/plugins && command -v rsync && echo "WordPress localizado"'
           printf -v ssh_command '%q ' ssh "${ssh_options[@]}"
-          rsync --recursive --checksum --itemize-changes --dry-run --relative --stats \
-            -e "$ssh_command" \
+          components=(
             wp-content/themes/ellamara/ \
             wp-content/plugins/ellamara-cart-controls/ \
             wp-content/plugins/ellamara-catalog/ \
             wp-content/plugins/ellamara-contact/ \
             wp-content/plugins/ellamara-shipping/ \
-            wp-content/plugins/ellamara-suggestions/ \
-            "$SSH_TARGET:domains/ellamarastore.com/public_html/"
+            wp-content/plugins/ellamara-suggestions/
+          )
+          destination="$SSH_TARGET:domains/ellamarastore.com/public_html/"
+          options=(--recursive --checksum --itemize-changes --relative --stats -e "$ssh_command")
+          rsync "${options[@]}" --dry-run "${components[@]}" "$destination"
+          if [[ "$MODE" == deploy ]]; then
+            ssh "${ssh_options[@]}" -- "$SSH_TARGET" 'set -eu
+              umask 077
+              cd ~/domains/ellamarastore.com/public_html
+              mkdir -p ~/ellamara-deploy-backups
+              backup=$(mktemp ~/ellamara-deploy-backups/components.XXXXXXXX.tar.gz)
+              tar -czf "$backup" wp-content/themes/ellamara wp-content/plugins/ellamara-cart-controls wp-content/plugins/ellamara-catalog wp-content/plugins/ellamara-contact wp-content/plugins/ellamara-shipping wp-content/plugins/ellamara-suggestions
+              tar -tzf "$backup" >/dev/null
+              printf "Respaldo creado: %s\n" "${backup##*/}"'
+            rsync "${options[@]}" --delay-updates "${components[@]}" "$destination"
+            pending=$(rsync "${options[@]}" --dry-run --no-stats --out-format='%i %n' "${components[@]}" "$destination")
+            if [[ -n "$pending" ]]; then
+              printf 'La comprobación posterior detectó diferencias:\n%s\n' "$pending"
+              exit 1
+            fi
+            echo 'Archivos desplegados y verificados por contenido.'
+          fi

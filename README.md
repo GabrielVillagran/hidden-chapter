@@ -9,6 +9,10 @@ El catálogo, pedidos, clientes, medios, ajustes y personalizaciones guardadas e
 
 ## Publicar un cambio
 
+GitHub Actions ofrece **Revisar o desplegar Ellamara** desde `main`. Usa `preview` para comparar el código con Hostinger. Usa `deploy` para respaldar los seis componentes en `~/ellamara-deploy-backups`, subir los archivos y verificar su contenido. Los archivos exclusivos del servidor se conservan. La base de datos, los medios y la configuración de WordPress quedan fuera de la sincronización.
+
+Para instalar un componente por ZIP, sigue estos pasos:
+
 1. Crear una rama, modificar el componente y probarlo en LocalWP.
 2. Ejecutar `./package.ps1 -Component ellamara-shipping` para generar el ZIP del componente, o `./package.ps1` para generar todos los ZIP en dist.
 3. Revisar los archivos y probar el paquete en staging cuando afecte el checkout.
