@@ -180,10 +180,10 @@ function pills(): string {
 
 /** Category switches are separate from genre filters and clear the prior search. */
 function category_navigation(): string {
-    $categories = get_terms(['taxonomy' => 'product_cat', 'slug' => ['libros', 'marcapaginas', 'pines', 'merch'], 'hide_empty' => true]);
+    $categories = get_terms(['taxonomy' => 'product_cat', 'slug' => ['libros', 'marcapaginas', 'pines'], 'hide_empty' => true]);
     if (is_wp_error($categories)) { return ''; }
     if (count($categories) <= 1) { return ''; }
-    $order = ['libros' => 0, 'marcapaginas' => 1, 'pines' => 2, 'merch' => 3];
+    $order = ['libros' => 0, 'marcapaginas' => 1, 'pines' => 2];
     usort($categories, static fn ($a, $b) => ($order[$a->slug] ?? 9) <=> ($order[$b->slug] ?? 9));
     $current = is_product_category() ? (int) get_queried_object_id() : 0;
     $ancestors = $current ? get_ancestors($current, 'product_cat', 'taxonomy') : [];
