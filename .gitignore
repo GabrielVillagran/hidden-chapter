@@ -1,0 +1,5 @@
+/dist/
+.env*
+*.sql
+*.zip
+wp-config.php

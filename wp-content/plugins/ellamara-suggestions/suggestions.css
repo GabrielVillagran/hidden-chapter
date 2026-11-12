@@ -1,0 +1,17 @@
+.ellamara-suggestions-intro { display: flex; justify-content: space-between; align-items: start; gap: 1.5rem; flex-wrap: wrap; padding: 1.5rem; background: #330a0af5; border-radius: 14px; }
+.ellamara-suggestions-intro h2 { margin-top: 0; font-size: 1.6rem; }
+.ellamara-suggestions-message { max-width: 70ch; color: #f2ebdd; }
+.ellamara-suggestions-reset { min-height: 46px; padding: .65rem 1rem; border: 1px solid #b08a4a; border-radius: 10px; background: #b08a4a; color: #1a1718; font: inherit; cursor: pointer; }
+.ellamara-suggestions-reset[hidden] { display: none; }
+.ellamara-suggestions-privacy { color: #db9ab1; font-size: .875rem; margin-block: 1rem 2rem; }
+.ellamara-suggestions .products { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+.ellamara-suggestions .products::before, .ellamara-suggestions .products::after { content: none !important; }
+.ellamara-suggestions .products li.product { width: 100% !important; margin: 0 !important; min-width: 0; }
+.ellamara-suggestions .products .woocommerce-loop-product__title { font-size: 1rem; line-height: 1.4; color: #f2ebdd; }
+.ellamara-suggestions .products .price { font-size: 1.25rem; }
+@media(max-width: 1100px) { .ellamara-suggestions .products { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media(max-width: 820px) { .ellamara-suggestions .products { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media(max-width: 540px) { .ellamara-suggestions .products { grid-template-columns: minmax(0, 1fr); } }
+
+.ellamara-suggestions .products .woocommerce-loop-product__title { min-height: 2.8em; }
+.ellamara-suggestions .products .price, .ellamara-suggestions .products .price .woocommerce-Price-amount { color: #e3c389; font-size: 1.25rem; }

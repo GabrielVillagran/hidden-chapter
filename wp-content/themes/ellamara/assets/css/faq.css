@@ -1,0 +1,42 @@
+.ellamara-faq { width: 100%; }
+.ellamara-faq-intro { max-width: 72ch; color: #f2ebdd; line-height: 1.7; margin-bottom: 2rem; }
+.ellamara-faq-group { margin-block: 2rem; }
+.ellamara-faq-group h2 { color: #e3c389; font-size: clamp(1.2rem, 2vw, 1.5rem); margin-bottom: 1rem; }
+.ellamara-faq .ellamara-faq-item { margin-block: .75rem; border: 1px solid #b08a4a60; border-radius: 12px; background: #330a0af5; color: #f2ebdd; overflow: clip; }
+.ellamara-faq-item summary { box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 60px; padding: 1rem 1.25rem; font-weight: 600; font-size: 1.05rem; line-height: 1.5; cursor: pointer; list-style: none; }
+.ellamara-faq-item summary::-webkit-details-marker { display: none; }
+.ellamara-faq-item summary::after { content: '+'; flex: 0 0 24px; text-align: center; color: #e3c389; font-size: 1.5rem; font-weight: 400; }
+.ellamara-faq-item[open] summary::after { content: '−'; }
+.ellamara-faq-item[open] summary { border-bottom: 1px solid #b08a4a40; color: #e3c389; }
+.ellamara-faq-item summary:hover { background: #b08a4a15; }
+.ellamara-faq-item summary:focus-visible { outline: 3px solid #f2ebdd; outline-offset: -4px; border-radius: 12px; }
+.ellamara-faq-item > p { padding: 1rem 1.25rem 1.25rem; margin: 0; max-width: 85ch; color: #f2ebdd; font-size: 1rem; line-height: 1.75; }
+.ellamara-faq-item a { color: #e3c389; text-underline-offset: .2em; }
+.ellamara-faq-help {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 2rem;
+  row-gap: .35rem;
+  align-items: center;
+  margin-block: 2rem 1rem;
+  padding: 1.5rem;
+  border: 1px solid #b08a4a60;
+  border-radius: 12px;
+  background: #330a0af5;
+}
+.ellamara-faq-help h2 { grid-column: 1; margin: 0; color: #f2ebdd; font-size: 1.2rem; line-height: 1.4; }
+.ellamara-faq-help p { grid-column: 1; margin: 0; color: #db9ab1; font-size: 1rem; line-height: 1.6; }
+.ellamara-faq-help .wp-block-buttons { grid-column: 2; grid-row: 1 / span 2; margin: 0; }
+.ellamara-faq-help .wp-block-button__link {
+  display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box;
+  min-height: 48px; padding: .75rem 1.25rem; border: 1px solid #b08a4a;
+  border-radius: 10px; background: #b08a4a; color: #210707;
+  font-size: 1rem; font-weight: 700; line-height: 1.4; text-decoration: none;
+}
+.ellamara-faq-help .wp-block-button__link:hover { background: #e3c389; border-color: #e3c389; color: #210707; }
+.ellamara-faq-help .wp-block-button__link:focus-visible { outline: 3px solid #f2ebdd; outline-offset: 3px; }
+@media(max-width:700px) {
+  .ellamara-faq-help { grid-template-columns: minmax(0, 1fr); gap: .5rem; padding: 1.25rem; }
+  .ellamara-faq-help .wp-block-buttons { grid-column: 1; grid-row: auto; margin-top: .5rem; }
+}
+@media(max-width:540px) { .ellamara-faq-item summary { padding: .9rem 1rem; font-size: 1rem; } .ellamara-faq-item > p { padding: 1rem; } }

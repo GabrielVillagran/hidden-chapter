@@ -1,0 +1,112 @@
+/* A calm, compact purchase area, with the founders' artwork visible around it. */
+.single-product .woocommerce-product-gallery img.zoomImg { max-width: none !important; max-height: none !important; object-fit: fill !important; border-radius: 0; background: transparent; }
+.single-product main > .wp-block-columns:has(.wp-block-woocommerce-product-image-gallery) {
+  display: grid !important; grid-template-columns: minmax(250px, .75fr) minmax(0, 1.25fr);
+  gap: clamp(1.5rem, 4vw, 4rem); align-items: start !important; margin-block: 1.5rem 3rem;
+}
+.single-product main > .wp-block-columns > .wp-block-column { min-width: 0; align-self: start !important; }
+.single-product .wp-block-woocommerce-product-image-gallery { background: #f2ebdd; border-radius: 18px; padding: clamp(1rem, 3vw, 2rem); }
+.single-product .woocommerce-product-gallery { width: 100% !important; float: none !important; margin: 0 !important; }
+.single-product .woocommerce-product-gallery .woocommerce-product-gallery__image > a > img { width: 100%; max-height: 480px; object-fit: contain; }
+.single-product main .wp-block-column:has(> h1) { padding: clamp(1.25rem, 3vw, 2.5rem); }
+.single-product main h1 { font-size: clamp(1.8rem, 3vw, 2.7rem); line-height: 1.2; margin-block: 0 1rem; max-width: 30ch; }
+.single-product .wp-block-column > .wp-block-woocommerce-product-price { margin-block: 0 1.5rem !important; }
+.single-product .wp-block-column > .wp-block-woocommerce-product-price .amount { color: #e3c389; font-size: 1.85rem; }
+.ellamara-product-facts { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin: 0 0 1.5rem; }
+.ellamara-product-facts div { min-width: 0; }
+.ellamara-product-facts dt { color: #db9ab1; font-size: .875rem; margin-bottom: .25rem; }
+.ellamara-product-facts dd { color: #f2ebdd; font-weight: 600; margin: 0; overflow-wrap: anywhere; }
+.single-product .stock { display: inline-block; margin-block: 0 1.25rem; background: #ffffff09; padding: .75rem 1rem; border-radius: 10px; line-height: 1.5; }
+.single-product .wp-block-woocommerce-product-meta { font-size: .85rem; color: #db9ab1; margin-top: 1.5rem; }
+.single-product .wp-block-woocommerce-product-details { margin-block: 2rem 3rem; }
+/* The review form is still submitted and validated by WooCommerce/WordPress. */
+.single-product #reviews { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 2rem; align-items: start; }
+.single-product #reviews #review_form_wrapper { background: #ffffff05; border-radius: 14px; padding: clamp(1rem, 2vw, 1.75rem); min-width: 0; }
+.single-product #reviews #reply-title { display: block; color: #f2ebdd; font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; }
+.single-product #reviews form { max-width: 760px; }
+.single-product #reviews form :is(input[type=text], input[type=email], textarea) { box-sizing: border-box; width: 100%; background: #f2ebdd; color: #1a1718; border: 1px solid #b08a4a; border-radius: 10px; padding: .85rem 1rem; font: inherit; min-height: 48px; }
+.single-product #reviews #comment { min-height: 150px; resize: vertical; }
+.single-product #reviews form label { display: block; color: #f2ebdd; margin-bottom: .5rem; line-height: 1.5; }
+.single-product #reviews form p { margin-block: 0 1.25rem; }
+.single-product #reviews .comment-notes { font-size: .9rem; color: #db9ab1; }
+.single-product #reviews .comment-form-cookies-consent { display: flex; align-items: flex-start; gap: .75rem; font-size: .85rem; }
+.single-product #reviews .comment-form-cookies-consent input { min-width: 20px; min-height: 20px; margin-top: .2rem; accent-color: #b08a4a; }
+.single-product #reviews .form-submit { margin: 1.5rem 0 0 !important; }
+.single-product #reviews #submit { display: inline-flex !important; width: auto !important; min-width: 180px; min-height: 48px; padding: .8rem 1.5rem !important; background: #b08a4a !important; color: #1a1718 !important; border: 1px solid #b08a4a !important; border-radius: 10px !important; font: inherit; font-weight: 700; cursor: pointer; }
+.single-product #reviews #submit:hover { background: #f2ebdd !important; }
+.single-product #reviews p.stars span { display: inline-flex; gap: .25rem; }
+.single-product #reviews p.stars a { width: 44px; height: 44px; font-size: 1.5rem; margin-right: 0; }
+.single-product #reviews p.stars a::before { line-height: 44px; }
+/* Equal-height related cards in a touch-friendly, keyboard-accessible scroller. */
+.ellamara-related { position: relative; min-width: 0; margin-block: 3rem; }
+.ellamara-related h2 { padding-right: 116px; margin: 0 0 1.5rem !important; }
+.ellamara-carousel-controls { position: absolute; right: 0; top: 0; display: flex; gap: .5rem; }
+.ellamara-carousel-controls[hidden] { display: none; }
+.ellamara-carousel-controls button { width: 46px; height: 46px; border: 1px solid #b08a4a; border-radius: 50%; color: #f2ebdd; background: #330a0a; font-size: 1.4rem; cursor: pointer; }
+.ellamara-carousel-controls button:hover:enabled { background: #b08a4a; color: #1a1718; }
+.ellamara-carousel-controls button:disabled { opacity: .35; cursor: default; }
+.single-product .ellamara-related .wc-block-product-template {
+  display: grid !important; grid-auto-flow: column; grid-auto-columns: calc((100% - 3.75rem) / 4);
+  grid-template-columns: none !important; gap: 1.25rem; overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x proximity; scroll-padding-inline: 3px; padding: 4px 3px 1rem; margin: 0;
+  scrollbar-width: thin; scrollbar-color: #b08a4a #330a0a;
+}
+.single-product .ellamara-related .wc-block-product-template > li { width: 100% !important; min-width: 0; margin: 0 !important; box-sizing: border-box; padding: 1rem; scroll-snap-align: start; display: flex; flex-direction: column; gap: .85rem; text-align: left; }
+.ellamara-related .wp-block-woocommerce-product-image { height: 220px; width: 100%; background: #f2ebdd; }
+.ellamara-related .wp-block-woocommerce-product-image a { display: flex; height: 100%; padding: .75rem; box-sizing: border-box; }
+.ellamara-related .wp-block-woocommerce-product-image img { height: 100% !important; width: 100% !important; object-fit: contain !important; }
+.ellamara-related .wp-block-post-title { min-height: 2.8em; font-size: 1rem !important; line-height: 1.4; text-align: left; margin: 0; }
+.ellamara-related .wc-block-components-product-price { text-align: left !important; }
+.ellamara-related .amount { color: #e3c389; font-size: 1.15rem; }
+.ellamara-related .ellamara-purchase { margin-top: auto !important; padding-top: .5rem; }
+.ellamara-carousel-hint { color: #db9ab1; font-size: .875rem; margin-block: .5rem 0; }
+@media(max-width:1100px) { .single-product .ellamara-related .wc-block-product-template { grid-auto-columns: calc((100% - 2.5rem) / 3); } }
+@media(max-width:780px) {
+  .single-product main > .wp-block-columns:has(.wp-block-woocommerce-product-image-gallery) { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .single-product .woocommerce-product-gallery .woocommerce-product-gallery__image > a > img { max-height: 360px; }
+  .single-product #reviews { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .single-product .ellamara-related .wc-block-product-template { grid-auto-columns: calc((100% - 1.25rem) / 2); }
+}
+@media(max-width:540px) {
+  .single-product .ellamara-related .wc-block-product-template { grid-auto-columns: calc(100% - 2.75rem); }
+  .ellamara-related .wp-block-woocommerce-product-image { height: 180px; }
+  .single-product #reviews #submit { width: 100% !important; }
+  .single-product #reviews #review_form_wrapper { padding-inline: 0; background: transparent; }
+  .ellamara-related h2 { font-size: 1.35rem; min-height: 46px; display: flex; align-items: center; }
+}
+
+/* One book-focused composition instead of two large, separate panels. */
+.single-product main > .wp-block-columns:has(.wp-block-woocommerce-product-image-gallery) {
+  grid-template-columns: clamp(220px, 28vw, 340px) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem); padding: clamp(1.25rem, 3vw, 2.75rem);
+  background: #330a0af5; border-radius: 20px; box-sizing: border-box;
+}
+.single-product .wp-block-woocommerce-product-image-gallery { max-width: 320px; margin-inline: auto; padding: 1rem; border-radius: 12px; }
+.single-product .woocommerce-product-gallery .woocommerce-product-gallery__image > a > img { height: 380px !important; max-height: 380px; object-fit: contain !important; }
+.single-product main .wp-block-column:has(> h1) { display: flex; flex-direction: column; gap: 0; width: 100%; max-width: 760px; padding: .25rem 0; background: transparent; border: 0; border-radius: 0; }
+.single-product main .wp-block-column:has(> h1) > * { order: 5; }
+.single-product main .wp-block-column:has(> h1) > h1 { order: 1; margin: 0 0 .5rem; font-size: clamp(1.8rem, 2.8vw, 2.6rem); }
+.single-product main .wp-block-column:has(> h1) > .ellamara-product-author { order: 2; color: #f2ebdd; font-size: 1.1rem; margin: 0 0 1rem !important; }
+.single-product main .wp-block-column:has(> h1) > .ellamara-product-facts { order: 3; margin: 0 0 1rem !important; }
+.ellamara-product-facts dt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.ellamara-product-facts dd { display: inline-block; padding: .4rem .8rem; border-radius: 20px; background: #ffffff09; color: #db9ab1; font-size: .9rem; font-weight: 500; }
+.single-product main .wp-block-column:has(> h1) > .wp-block-woocommerce-product-price { order: 4; margin: 0 0 1.1rem !important; }
+.single-product .stock { background: transparent; padding: 0; margin: 0 0 1.25rem; font-size: .95rem; color: #f2ebdd; }
+.single-product .stock::before { content: ''; display: inline-block; width: .5rem; height: .5rem; border-radius: 50%; background: #e3c389; margin-right: .55rem; vertical-align: middle; }
+.single-product form.cart:has(.ellamara-pdp-quantity) { grid-template-columns: minmax(150px, .65fr) minmax(200px, 1fr) !important; gap: .5rem 1rem; align-items: start; margin-top: 0 !important; margin-bottom: .75rem !important; }
+.single-product form.cart .ellamara-pdp-quantity > label { line-height: 24px; }
+.single-product form.cart .quantity.ellamara-pdp-quantity { max-width: none; }
+.single-product form.cart:has(.ellamara-pdp-quantity) > button.single_add_to_cart_button { grid-column: 2 !important; grid-row: 1; margin-top: 32px !important; max-width: none; height: 48px; white-space: nowrap; }
+.single-product .ellamara-product-help { margin: .75rem 0 0; gap: 0 1rem; }
+@media(max-width:780px) {
+  .single-product main > .wp-block-columns:has(.wp-block-woocommerce-product-image-gallery) { grid-template-columns: minmax(0, 1fr); }
+  .single-product .wp-block-woocommerce-product-image-gallery { max-width: 240px; }
+  .single-product .woocommerce-product-gallery .woocommerce-product-gallery__image > a > img { height: 290px !important; max-height: 290px; }
+}
+@media(max-width:540px) {
+  .single-product form.cart:has(.ellamara-pdp-quantity) { grid-template-columns: minmax(0, 1fr) !important; }
+  .single-product form.cart:has(.ellamara-pdp-quantity) > button.single_add_to_cart_button { grid-column: 1 !important; grid-row: auto; margin-top: .25rem !important; }
+  .single-product .ellamara-product-help { font-size: .85rem; }
+}
+
+

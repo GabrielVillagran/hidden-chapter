@@ -1,0 +1,63 @@
+/* Shared page edges: the header, main sections and footer use one gutter. */
+body {
+  --ellamara-page-gutter: 40px;
+  --wp--style--root--padding-left: var(--ellamara-page-gutter);
+  --wp--style--root--padding-right: var(--ellamara-page-gutter);
+  --wp--style--global--content-size: 100%;
+  --wp--style--global--wide-size: 100%;
+}
+.ellamara-header { padding-inline: var(--ellamara-page-gutter); }
+.wp-site-blocks > main,
+body.page .wp-site-blocks > main:has(.ellamara-contact-layout) {
+  width: auto !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+  padding-inline: var(--ellamara-page-gutter) !important;
+}
+.wp-site-blocks > main > :is(.wp-block-post-title, .wp-block-post-content),
+.woocommerce-account .wp-site-blocks > main > :is(.wp-block-post-title, .wp-block-post-content),
+body.page .wp-site-blocks > main:has(.ellamara-contact-layout) > :is(.wp-block-post-title, .wp-block-post-content),
+.wp-block-post-content > .ellamara-contact-layout {
+  max-width: none !important;
+  width: 100%;
+  margin-inline: 0 !important;
+}
+.ellamara-catalog { max-width: none !important; padding-inline: 0 !important; }
+.ellamara-catalog > .alignwide { max-width: none !important; }
+.ellamara-story {
+  margin-inline: calc(-1 * var(--ellamara-page-gutter)) !important;
+  padding-inline: var(--ellamara-page-gutter) !important;
+  width: auto !important;
+  max-width: none !important;
+}
+.ellamara-story > :is(h2, h3, p) { max-width: none !important; margin-inline: 0 !important; }
+.ellamara-story > p { max-width: 95ch !important; }
+.ellamara-story > h3 { max-width: 40ch !important; }
+.ellamara-store-footer { padding-inline: var(--ellamara-page-gutter) !important; }
+.ellamara-store-footer > :is(.ellamara-footer-identity, .ellamara-footer-grid, .ellamara-footer-bottom) { max-width: none !important; width: 100%; margin-inline: 0 !important; }
+.wp-site-blocks > main .wp-block-woocommerce-product-collection.alignwide,
+.wp-site-blocks > main > .wp-block-columns.alignwide,
+.wp-site-blocks > main > .wp-block-woocommerce-product-details.alignwide { max-width: none !important; }
+.ellamara-contact-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.ellamara-contact-intro > :is(p, h2, .ellamara-contact-email) { max-width: 52ch; }
+/* Forms keep a comfortable line length inside the full-width section. */
+.ellamara-contact-form, .ellamara-contact-panel > :is(h2,p) { max-width: 760px; }
+@media(max-width: 760px) { .ellamara-contact-layout { grid-template-columns: minmax(0, 1fr); } }
+@media(max-width: 600px) { body { --ellamara-page-gutter: 16px; } }
+
+/* Long search queries, names and identifiers must wrap instead of being clipped. */
+main :is(h1, h2, h3, .woocommerce-breadcrumb, .product_meta),
+.ellamara-store-footer a { overflow-wrap: anywhere; }
+.ellamara-stock-label { color: #db9ab1; font-size: .95rem; font-weight: 650; margin: 0 0 .5rem; }
+.ellamara-checkout-title { margin-block: 0 1.5rem; font-size: clamp(1.85rem, 3.5vw, 3rem); }
+.ellamara-recovery { background: #330a0af5; border-radius: 16px; padding: clamp(1.25rem, 4vw, 3rem); }
+.ellamara-recovery > * { margin-inline: 0 !important; max-width: 60ch !important; }
+.ellamara-recovery h1 { font-size: clamp(1.85rem, 4vw, 3rem); line-height: 1.2; max-width: 24ch !important; }
+.ellamara-recovery-eyebrow { color: #db9ab1; }
+.ellamara-recovery .wp-block-search { margin-block: 1.5rem; }
+.ellamara-recovery .wp-block-search__inside-wrapper { gap: .5rem; }
+.ellamara-recovery .wp-block-search__input { min-width: 0; background: #f2ebdd; color: #1a1718; border: 1px solid #b08a4a; border-radius: 8px; padding: .75rem; }
+.ellamara-recovery .wp-block-search__button { margin: 0; min-height: 46px; border-radius: 8px; }
+.ellamara-recovery :is(.wp-block-search__button, .wp-block-button__link) { background: #b08a4a; color: #1a1718; font-weight: 700; padding: .75rem 1.1rem; text-decoration: none; }
+.ellamara-recovery :is(.wp-block-search__button, .wp-block-button__link):hover { background: #f2ebdd; }
+main :is(a, button, input, select, textarea):focus-visible { outline: 3px solid #f2ebdd; outline-offset: 3px; }

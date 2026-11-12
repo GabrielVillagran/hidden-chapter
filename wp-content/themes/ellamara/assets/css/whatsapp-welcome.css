@@ -1,0 +1,28 @@
+.ellamara-whatsapp-welcome {
+    box-sizing: border-box; width: min(460px, calc(100% - 32px)); max-height: calc(100dvh - 32px);
+    overflow: auto; margin: auto; padding: 2.5rem 1.75rem 1.5rem; border: 1px solid #b08a4a80;
+    border-radius: 20px; background: #330a0a; color: #f2ebdd; box-shadow: 0 20px 70px #0008;
+    font-family: inherit; text-align: center;
+}
+.ellamara-whatsapp-welcome::backdrop { background: #15050599; backdrop-filter: blur(3px); }
+.ellamara-whatsapp-welcome h2 { margin: .5rem 0 1rem; color: #e3c389; font-size: 1.7rem; line-height: 1.25; }
+.ellamara-whatsapp-welcome p { line-height: 1.6; }
+.ellamara-whatsapp-eyebrow { margin: 0; color: #db9ab1; font-size: .85rem; }
+.ellamara-whatsapp-welcome .ellamara-whatsapp-close {
+    position: absolute; top: 6px; right: 6px; width: 44px; height: 44px; padding: 0;
+    background: transparent; border: 0; color: #f2ebdd; font-size: 1.7rem; cursor: pointer;
+}
+.ellamara-whatsapp-link { display: flex; align-items: center; justify-content: center; gap: .5rem; min-height: 48px;
+    padding: .6rem 1rem; margin-top: 1.5rem; border-radius: 10px; background: #b08a4a;
+    color: #210707; font-size: 1rem; font-weight: 700; text-decoration: none; box-sizing: border-box; }
+.ellamara-whatsapp-link:hover { background: #e3c389; color: #210707; }
+.ellamara-whatsapp-welcome .ellamara-whatsapp-continue { display: block; margin: .5rem auto 0; padding: .5rem;
+    min-height: 44px; background: transparent; border: 0; color: #f2ebdd; font: inherit; font-size: .9rem; cursor: pointer; }
+.ellamara-whatsapp-welcome :is(a,button):focus-visible { outline: 3px solid #f2ebdd; outline-offset: 3px; }
+
+.ellamara-whatsapp-payment { padding-top: 1rem; border-top: 1px solid #b08a4a50; font-size: .95rem; }
+.ellamara-cart-payment-help { margin-block: 1rem; padding: 1rem; border: 1px solid #b08a4a60; border-radius: 12px; background: #330a0a; color: #f2ebdd; font-size: .95rem; line-height: 1.6; }
+.ellamara-cart-payment-help strong { color: #e3c389; }
+.ellamara-cart-payment-help p { margin-block: .5rem; }
+.ellamara-cart-payment-help a { display: inline-flex; align-items: center; min-height: 44px; color: #e3c389; text-underline-offset: .2em; }
+.ellamara-cart-payment-help a:focus-visible { outline: 3px solid #f2ebdd; outline-offset: 3px; }

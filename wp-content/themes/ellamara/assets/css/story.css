@@ -1,0 +1,17 @@
+/* Full-width artwork with readable editorial columns. */
+.ellamara-story.ellamara-story-editorial { padding-block: clamp(2.5rem,6vw,5.5rem); color: #f2ebdd; }
+.ellamara-story-editorial > .ellamara-story-content { display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); gap: clamp(2rem,6vw,6rem); align-items: start; max-width: none; }
+.ellamara-story-intro, .ellamara-story-narrative { min-width: 0; }
+.ellamara-story-eyebrow { margin: 0 0 1.25rem; color: #db9ab1; font-size: .85rem; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; }
+.ellamara-story-title.wp-block-heading { font-family: Georgia,'Times New Roman',serif; font-size: clamp(2rem,3.5vw,3.6rem); font-weight: 400; line-height: 1.15; color: #e3c389; max-width: 19ch; margin: 0 0 1.5rem; text-wrap: balance; }
+.ellamara-story-lead { max-width: 35ch; font-size: clamp(1.05rem,1.4vw,1.25rem); line-height: 1.7; margin: 0; }
+.ellamara-story-narrative p { max-width: 580px; margin: 0 0 1.25rem; font-size: 1.05rem; line-height: 1.7; color: #f2ebdd; }
+.ellamara-story-narrative p:last-child { margin-bottom: 0; }
+.ellamara-story-editorial > .ellamara-story-signoff { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem 3rem; padding: clamp(1.25rem,3vw,2rem); margin-top: clamp(2rem,4vw,3rem); background: #ffffff06; border-radius: 14px; max-width: none; }
+.ellamara-story-signoff > p { max-width: 65ch; margin: 0; color: #db9ab1; line-height: 1.7; font-size: 1.05rem; }
+.ellamara-story-signoff .wp-block-buttons { flex-shrink: 0; margin: 0; }
+.ellamara-story-signoff .wp-block-button__link { display: inline-flex; align-items: center; justify-content: center; gap: .75rem; box-sizing: border-box; min-height: 48px; padding: .75rem 1.2rem; border: 1px solid #b08a4a; border-radius: 10px; background: #b08a4a; color: #210707; font-size: 1rem; font-weight: 700; text-decoration: none; }
+.ellamara-story-signoff .wp-block-button__link:hover { background: #f2ebdd; border-color: #f2ebdd; }
+.ellamara-story-signoff a:focus-visible { outline: 3px solid #f2ebdd; outline-offset: 4px; }
+@media(max-width:900px) { .ellamara-story-editorial > .ellamara-story-content { grid-template-columns: minmax(0,1fr); gap: 2rem; } .ellamara-story-title.wp-block-heading { max-width: 26ch; } .ellamara-story-lead { max-width: 55ch; } .ellamara-story-editorial > .ellamara-story-signoff { flex-direction: column; align-items: flex-start; } }
+@media(max-width:540px) { .ellamara-story-title.wp-block-heading { font-size: 2rem; } .ellamara-story-narrative p { font-size: 1rem; line-height: 1.8; } .ellamara-story-signoff .wp-block-buttons, .ellamara-story-signoff .wp-block-button, .ellamara-story-signoff .wp-block-button__link { width: 100%; } }

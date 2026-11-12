@@ -1,0 +1,169 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "100%",
+      "wideSize": "100%"
+    },
+    "color": {
+      "defaultPalette": false,
+      "palette": [
+        {
+          "slug": "burgundy",
+          "name": "Vino oscuro",
+          "color": "#330a0a"
+        },
+        {
+          "slug": "charcoal",
+          "name": "Carbón",
+          "color": "#1A1718"
+        },
+        {
+          "slug": "gold",
+          "name": "Dorado",
+          "color": "#B08A4A"
+        },
+        {
+          "slug": "ivory",
+          "name": "Marfil",
+          "color": "#F2EBDD"
+        },
+        {
+          "slug": "rose",
+          "name": "Rosa",
+          "color": "#DB9AB1"
+        }
+      ]
+    },
+    "typography": {
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "slug": "editorial",
+          "name": "Editorial · Georgia",
+          "fontFamily": "Georgia, \"Times New Roman\", serif"
+        },
+        {
+          "slug": "interface",
+          "name": "Interfaz · Sistema",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+        }
+      ],
+      "fontSizes": [
+        {
+          "slug": "small",
+          "name": "Pequeño",
+          "size": "0.875rem"
+        },
+        {
+          "slug": "medium",
+          "name": "Texto",
+          "size": "1.0625rem"
+        },
+        {
+          "slug": "large",
+          "name": "Subtítulo",
+          "size": "1.5rem"
+        },
+        {
+          "slug": "x-large",
+          "name": "Título",
+          "size": "2.5rem"
+        },
+        {
+          "slug": "hero",
+          "name": "Portada",
+          "size": "4rem",
+          "fluid": {
+            "min": "2.25rem",
+            "max": "4rem"
+          }
+        }
+      ]
+    },
+    "spacing": {
+      "units": [
+        "px",
+        "rem",
+        "%",
+        "vw"
+      ]
+    },
+    "useRootPaddingAwareAlignments": true
+  },
+  "styles": {
+    "color": {
+      "background": "var:preset|color|burgundy",
+      "text": "var:preset|color|rose"
+    },
+    "typography": {
+      "fontFamily": "var:preset|font-family|interface",
+      "fontSize": "var:preset|font-size|medium",
+      "lineHeight": "1.65"
+    },
+    "spacing": {
+      "padding": {
+        "left": "40px",
+        "right": "40px"
+      },
+      "blockGap": "1.5rem"
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|interface",
+          "fontWeight": "600",
+          "lineHeight": "1.15"
+        },
+        "color": {
+          "text": "var:preset|color|gold"
+        }
+      },
+      "h1": {
+        "typography": {
+          "fontSize": "var:preset|font-size|hero"
+        }
+      },
+      "link": {
+        "color": {
+          "text": "inherit"
+        }
+      },
+      "button": {
+        "color": {
+          "background": "var:preset|color|burgundy",
+          "text": "var:preset|color|ivory"
+        },
+        "border": {
+          "radius": "4px"
+        },
+        "spacing": {
+          "padding": {
+            "top": ".85rem",
+            "bottom": ".85rem",
+            "left": "1.5rem",
+            "right": "1.5rem"
+          }
+        },
+        "typography": {
+          "fontSize": "1rem",
+          "fontWeight": "600"
+        }
+      }
+    }
+  },
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "Cabecera",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "Pie de página",
+      "area": "footer"
+    }
+  ]
+}

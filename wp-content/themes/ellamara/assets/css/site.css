@@ -1,0 +1,120 @@
+:root {
+  --ellamara-burgundy: var(--wp--preset--color--burgundy);
+  --ellamara-charcoal: var(--wp--preset--color--charcoal);
+  --ellamara-gold: var(--wp--preset--color--gold);
+  --ellamara-ivory: var(--wp--preset--color--ivory);
+  --ellamara-rose: var(--wp--preset--color--rose);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+img { max-width: 100%; height: auto; }
+a { text-underline-offset: .22em; }
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 5px;
+}
+.wp-block-button__link { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+.ellamara-header { padding: 24px 40px; margin-block: 0; }
+.ellamara-header-row { gap: clamp(1rem, 3vw, 3rem); }
+.ellamara-brand { gap: 20px; min-width: 0; }
+.ellamara-brand .wp-block-site-logo { flex-shrink: 0; }
+.ellamara-header .wp-block-site-title { font-size: clamp(1.35rem, 3.2vw, 3.75rem); font-weight: 700; line-height: 1.15; margin: 0; }
+.ellamara-header .wp-block-site-title a { text-decoration: none; }
+.ellamara-header-actions { gap: 8px; flex-shrink: 0; align-items: center; }
+/* Isolate native block spacing without affecting the cart drawer or open menu. */
+.ellamara-header-actions > * { margin: 0; align-self: center; }
+.ellamara-header-actions > :is(.wp-block-woocommerce-customer-account, .wc-block-mini-cart, .wp-block-navigation) {
+  display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0;
+}
+.ellamara-header-actions :is(.wc-block-customer-account__link, .wc-block-mini-cart__button, .wp-block-navigation__responsive-container-open) {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; min-width: 44px; min-height: 44px;
+  padding: 0; margin: 0; border: 0; background: transparent; color: var(--ellamara-gold); line-height: 1;
+}
+.ellamara-header-actions :is(.wc-block-customer-account__visual, .wc-block-mini-cart__quantity-badge) {
+  display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; margin: 0;
+}
+.ellamara-header-actions :is(.wc-block-customer-account__visual svg, .wc-block-mini-cart__icon, .wp-block-navigation__responsive-container-open svg) {
+  display: block; width: 28px; height: 28px; flex-shrink: 0;
+}
+.ellamara-header-actions .wc-block-mini-cart__quantity-badge { position: relative; }
+.ellamara-header-actions .wc-block-mini-cart__badge { position: absolute; top: -6px; right: -7px; }
+.ellamara-header-actions :is(summary, .wc-block-customer-account__link, .wc-block-mini-cart__button, .wp-block-navigation__responsive-container-open):hover {
+  background-color: #b08a4a18; border-radius: 4px;
+}
+/* Search stays visible; only the header layout changes at smaller widths. */
+.ellamara-header .ellamara-header-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 440px) auto;
+  grid-template-areas: "brand search actions"; gap: 24px; align-items: center;
+}
+.ellamara-brand { grid-area: brand; }
+.ellamara-header-actions { grid-area: actions; }
+.ellamara-header-search { grid-area: search; width: 100%; min-width: 0; margin: 0; }
+.ellamara-header .wp-block-site-title { font-size: clamp(1.35rem, 2.25vw, 2.75rem); }
+.ellamara-header-search .wp-block-search__inside-wrapper {
+  display: flex; align-items: stretch; padding: 0; min-height: 46px;
+  background: var(--ellamara-ivory); border: 1px solid var(--ellamara-gold); border-radius: 6px;
+}
+.ellamara-header-search .wp-block-search__input {
+  flex: 1; width: 100%; min-width: 0; border: 0; padding: 10px 12px; font: inherit; font-size: 16px;
+  background: transparent; color: var(--ellamara-charcoal); border-radius: 6px 0 0 6px;
+}
+.ellamara-header-search .wp-block-search__input::placeholder { color: #61545a; opacity: 1; }
+.ellamara-header-search .wp-block-search__button {
+  display: grid; place-items: center; flex-shrink: 0; width: 46px; min-height: 44px; padding: 0;
+  margin: 0; background: transparent; color: var(--ellamara-burgundy); border: 0; border-radius: 0 6px 6px 0;
+}
+.ellamara-header-search .wp-block-search__button:hover { background: #b08a4a25; }
+.ellamara-header-search .wp-block-search__button svg { width: 26px; height: 26px; }
+.ellamara-header-search :is(input, button):focus-visible { outline-color: var(--ellamara-burgundy); outline-offset: -3px; }
+@media (max-width: 1000px) {
+  .ellamara-header .ellamara-header-row {
+    grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "brand actions" "search search"; gap: 16px;
+  }
+}
+.ellamara-header .wp-block-navigation__responsive-container.is-menu-open { background: var(--ellamara-burgundy); color: var(--ellamara-gold); }
+.ellamara-footer-row { gap: 3rem; }
+.ellamara-footer-brand { max-width: 40rem; }
+.ellamara-footer .wp-block-site-title { font-weight: 700; }
+.ellamara-footer .wp-block-site-title a { text-decoration: none; }
+.ellamara-footer .wp-block-navigation { min-width: 12rem; }
+.ellamara-footer { border: 0; }
+.ellamara-hero { background-color: var(--ellamara-burgundy); }
+.ellamara-category { background: #ffffff03; }
+.woocommerce div.product .woocommerce-tabs ul.tabs li a { color: var(--ellamara-charcoal); }
+.woocommerce ul.products li.product .price { color: var(--ellamara-rose); }
+.ellamara-header .wp-block-navigation-item__content { padding-block: .65rem; }
+.ellamara-hero { padding: clamp(3rem, 9vw, 8rem) clamp(1.25rem, 5vw, 4rem); position: relative; }
+.ellamara-hero::before { content: ''; position: absolute; inset: 1rem; border: 1px solid var(--ellamara-gold); border-radius: 12rem 12rem 0 0; pointer-events: none; opacity: .45; }
+.ellamara-hero > * { position: relative; }
+.ellamara-eyebrow { font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; }
+.ellamara-section { padding-block: clamp(2.5rem, 6vw, 5rem); }
+.ellamara-catalog { padding-block: 1.5rem 3rem; }
+.ellamara-catalog h1 { margin-block: 0 1.5rem; }
+.ellamara-catalog .wc-block-components-product-image img { aspect-ratio: 1; object-fit: contain; }
+#sobre-nosotros { scroll-margin-top: 3rem; }
+.ellamara-category { padding: 1.5rem; height: 100%; }
+.ellamara-story { border: 0; }
+.ellamara-footer { padding-block: 3rem; margin-block-start: 0; }
+.ellamara-footer a { display: inline-block; padding-block: .45rem; }
+.wp-block-search__input { min-width: 0; background: var(--ellamara-ivory); color: var(--ellamara-charcoal); border: 1px solid currentColor; border-radius: 4px; }
+.wp-block-search__button { min-height: 44px; }
+.woocommerce :where(input.input-text, select, textarea) { font: inherit; padding: .7rem; max-width: 100%; }
+.woocommerce :where(.price, .stock) { font-weight: 600; }
+.woocommerce div.product .woocommerce-tabs ul.tabs li a { color: var(--ellamara-charcoal); }
+@media (max-width: 600px) {
+  .ellamara-header { padding: 16px; }
+  .ellamara-header-row { flex-wrap: wrap !important; }
+  .ellamara-brand { flex: 1 1 100%; gap: 12px; }
+  .ellamara-brand .wp-block-site-logo { width: 68px; }
+  .ellamara-brand .wp-block-site-logo img { width: 68px; }
+  .ellamara-header .wp-block-site-title { font-size: 1.35rem; }
+  .ellamara-header-actions { width: auto; justify-content: flex-end; }
+  .ellamara-header .ellamara-header-row { grid-template-areas: "brand brand" "search actions"; gap: 16px 8px; }
+  .ellamara-header .wp-block-search { flex-basis: 100%; }
+  .ellamara-hero::before { inset: .6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

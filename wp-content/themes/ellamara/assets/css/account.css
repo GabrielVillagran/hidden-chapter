@@ -1,0 +1,232 @@
+/* One readable workspace for native account endpoints and security notices. */
+.woocommerce-account main > .wp-block-post-title,
+.woocommerce-account main > .wp-block-post-content { max-width: 1160px !important; width: 100%; margin-inline: auto; }
+.woocommerce-account main > .wp-block-post-title { font-size: clamp(2rem, 3.5vw, 3rem); margin-block-end: 1.5rem; }
+.woocommerce-account main .woocommerce:has(.woocommerce-MyAccount-navigation) { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+.woocommerce-account main .woocommerce:has(.woocommerce-MyAccount-navigation)::before,
+.woocommerce-account main .woocommerce:has(.woocommerce-MyAccount-navigation)::after { content: none; }
+.woocommerce-account .woocommerce-MyAccount-navigation { float: none; width: auto; padding: .75rem; background: #330a0af5; border: 1px solid #b08a4a40; border-radius: 16px; }
+.woocommerce-account .woocommerce-MyAccount-navigation ul { margin: 0; padding: 0; list-style: none; }
+.woocommerce-account .woocommerce-MyAccount-navigation li { padding: 0; margin: .25rem 0; }
+.woocommerce-account .woocommerce-MyAccount-navigation li a { display: flex; align-items: center; min-height: 48px; padding: .75rem 1rem; color: #f2ebdd; text-decoration: none; line-height: 1.35; border-radius: 10px; border: 1px solid transparent; }
+.woocommerce-account .woocommerce-MyAccount-navigation li.is-active a { background: #b08a4a; color: #1a1718; font-weight: 700; text-decoration: none; }
+.woocommerce-account .woocommerce-MyAccount-navigation li:not(.is-active) a:hover { background: #ffffff0d; border-color: #db9ab166; }
+.woocommerce-account .woocommerce-MyAccount-navigation-link--customer-logout { margin-block-start: 1rem !important; }
+.woocommerce-account .woocommerce-MyAccount-navigation-link--customer-logout a { color: #db9ab1; }
+.woocommerce-account .woocommerce-MyAccount-content { float: none; width: auto; min-width: 0; padding: clamp(1.25rem, 3vw, 2rem); background: #330a0af5; border: 1px solid #b08a4a40; border-radius: 16px; color: #f2ebdd; overflow-wrap: anywhere; }
+.woocommerce-account .woocommerce-MyAccount-content > :first-child { margin-top: 0; }
+.woocommerce-account .woocommerce-MyAccount-content > p { line-height: 1.75; }
+.woocommerce-account .woocommerce-MyAccount-content form { background: transparent; border: 0; padding: 0; margin-top: 0; }
+.woocommerce-account .woocommerce-MyAccount-content :is(input.input-text, select) { min-height: 48px; font-size: 1rem; border-radius: 8px; }
+.woocommerce-account .woocommerce-MyAccount-content fieldset { border: 1px solid #b08a4a40; border-radius: 12px; padding: 1rem; margin-block: 1.5rem; }
+.woocommerce-account .woocommerce-MyAccount-content legend { color: #e3c389; padding-inline: .5rem; font-weight: 650; }
+.ellamara-account-shortcuts { margin-block-start: 2rem; }
+.ellamara-account-shortcuts h2 { font-size: 1.3rem; margin-block: 0 1rem; }
+.ellamara-account-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; }
+.ellamara-account-card { display: flex; flex-direction: column; gap: .75rem; padding: 1.25rem; border: 1px solid #b08a4a66; border-radius: 12px; background: #ffffff05; color: #f2ebdd; text-decoration: none; }
+.ellamara-account-card strong { font-size: 1rem; line-height: 1.4; }
+.ellamara-account-card > span { color: #db9ab1; font-size: .9rem; line-height: 1.6; }
+.ellamara-account-card:hover { border-color: #db9ab1; background: #ffffff0a; }
+.ellamara-account-support { grid-column: 1; margin: 0; font-size: .875rem; }
+.ellamara-account-support a { display: inline-flex; align-items: center; min-height: 44px; color: #db9ab1; }
+/* The native navigation hook emits help before the content; keep the content in row one. */
+.woocommerce-account .woocommerce-MyAccount-content { grid-column: 2; grid-row: 1 / span 2; }
+.woocommerce-account .woocommerce-MyAccount-content .woocommerce-info,
+.woocommerce-account .woocommerce-MyAccount-content .wc-block-components-notice-banner { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; padding: 1rem; border-radius: 10px; font-size: .95rem; line-height: 1.6; }
+.woocommerce-account .woocommerce-MyAccount-content .wc-block-components-notice-banner__content { min-width: 0; flex: 1 1 200px; color: #1a1718; }
+.woocommerce-account .woocommerce-MyAccount-content .woocommerce-info a.button,
+.woocommerce-account .woocommerce-MyAccount-content .wc-block-components-notice-banner .button { float: none; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; height: auto; padding: .6rem 1rem; line-height: 1.4; white-space: normal; }
+.woocommerce-account table.shop_table { width: 100%; border-color: #b08a4a40; }
+.woocommerce-account table.shop_table :is(th, td) { padding: .85rem; border-color: #b08a4a40; }
+.woocommerce-account .woocommerce-Address { background: #ffffff05; border: 1px solid #b08a4a40; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; }
+.woocommerce-account .woocommerce-Address h2, .woocommerce-account .woocommerce-Address h3 { font-size: 1.2rem; }
+.woocommerce-account :is(a, button, input):focus-visible { outline: 3px solid #f2ebdd; outline-offset: 3px; }
+.woocommerce-account main .woocommerce:not(:has(.woocommerce-MyAccount-navigation)) { max-width: 660px; margin-inline: auto; }
+@media(max-width: 950px) { .ellamara-account-cards { grid-template-columns: minmax(0, 1fr); } }
+@media(max-width: 700px) {
+  .woocommerce-account main .woocommerce:has(.woocommerce-MyAccount-navigation) { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .woocommerce-account .woocommerce-MyAccount-content { grid-column: 1; grid-row: auto; padding: 1rem; }
+  .ellamara-account-support { grid-row: 3; }
+  .woocommerce-account .woocommerce-MyAccount-navigation ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .25rem; }
+  .woocommerce-account .woocommerce-MyAccount-navigation li { margin: 0 !important; }
+  .woocommerce-account .woocommerce-MyAccount-navigation li a { height: 100%; padding: .7rem; font-size: .9rem; }
+}
+
+.woocommerce-account main .wp-block-post-content > .woocommerce { max-width: none !important; width: 100%; }
+
+.woocommerce-account .woocommerce-MyAccount-content .wc-block-components-notice-banner { align-items: flex-start; }
+.woocommerce-account .woocommerce-MyAccount-content .wc-block-components-notice-banner__content { display: flex; flex-direction: column; align-items: flex-start; gap: .75rem; }
+.woocommerce-account .woocommerce-MyAccount-content .wc-block-components-notice-banner__content > a.button { order: 1; margin: 0; float: none; background: #b08a4a !important; color: #1a1718 !important; border: 1px solid #b08a4a !important; border-radius: 8px; text-decoration: none !important; font-size: .95rem; font-weight: 650; }
+
+
+.woocommerce-account main .wp-block-post-content > .woocommerce:not(:has(.woocommerce-MyAccount-navigation)) { max-width: 660px !important; }
+
+.woocommerce-account .woocommerce-Address .title { display: flex; flex-direction: column; align-items: center; gap: .85rem; text-align: center; }
+.woocommerce-account .woocommerce-Address .title::before, .woocommerce-account .woocommerce-Address .title::after { content: none; }
+.woocommerce-account .woocommerce-Address .title :is(h2,h3) { float: none; margin: 0; }
+.woocommerce-account .woocommerce-Address .title .edit { float: none; margin: 0 0 1rem; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .7rem 1.25rem; background: #b08a4a; color: #1a1718; border-radius: 10px; text-decoration: none; line-height: 1.5; text-align: center; }
+.woocommerce-account .woocommerce-MyAccount-content form:has(.woocommerce-address-fields) { width: 100%; max-width: 640px; margin-inline: auto; }
+.woocommerce-account .woocommerce-MyAccount-content:has(.woocommerce-address-fields) > h2 { max-width: 640px; margin-inline: auto; }
+.woocommerce-account .woocommerce-address-fields .form-row { float: none; width: 100%; margin-inline: 0; }
+
+/* Sidebar is a single grid item: help no longer moves with endpoint height. */
+.woocommerce-account main .woocommerce:has(.ellamara-account-sidebar) { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 1.75rem; align-items: start; }
+.ellamara-account-sidebar { grid-column: 1; grid-row: 1; min-width: 0; background: #330a0af5; border-radius: 18px; padding: 1rem; }
+.woocommerce-account .ellamara-account-sidebar .woocommerce-MyAccount-navigation { padding: 0; border: 0; background: transparent; border-radius: 0; }
+.ellamara-account-eyebrow { color: #db9ab1; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; margin: .5rem .75rem 1rem; }
+.woocommerce-account .ellamara-account-sidebar nav a { gap: .75rem; padding: .8rem .75rem; font-weight: 550; }
+.ellamara-account-sidebar svg, .ellamara-account-card > svg { flex-shrink: 0; }
+.ellamara-account-help { margin: 1.5rem .25rem 0; padding: 1.25rem .5rem; border-top: 1px solid #ffffff12; }
+.ellamara-account-help h2 { color: #f2ebdd; font-size: 1rem; margin: 0 0 .35rem; }
+.ellamara-account-help p { color: #db9ab1; font-size: .85rem; line-height: 1.5; margin: 0 0 .5rem; }
+.ellamara-account-help a { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; color: #e3c389; font-weight: 600; font-size: .9rem; text-decoration: none; }
+.ellamara-account-help a:hover { text-decoration: underline; }
+.ellamara-account-logout { display: flex; align-items: center; gap: .75rem; min-height: 46px; padding: .5rem .75rem; color: #db9ab1; text-decoration: none; border-radius: 10px; }
+.ellamara-account-logout:hover { background: #ffffff08; }
+.woocommerce-account .woocommerce-MyAccount-content { grid-row: 1; border: 0; border-radius: 18px; padding: clamp(1.25rem, 3vw, 2.5rem); min-height: 360px; }
+.woocommerce-account .woocommerce-MyAccount-content:has(.ellamara-account-overview) { display: flex; flex-direction: column; gap: 1.5rem; }
+.woocommerce-account .woocommerce-MyAccount-content:has(.ellamara-account-overview) > .wc-block-components-notice-banner { order: 2; margin: 0; }
+.woocommerce-account .woocommerce-MyAccount-content:has(.ellamara-account-overview) > .woocommerce-notices-wrapper { order: 2; }
+.ellamara-account-overview { order: 1; }
+.ellamara-account-overview .ellamara-account-eyebrow { margin: 0 0 .75rem; }
+.ellamara-account-overview h2 { color: #f2ebdd; font-size: clamp(1.65rem, 2.5vw, 2rem); margin: 0 0 .75rem; }
+.ellamara-account-intro { color: #db9ab1; max-width: 65ch; line-height: 1.65; margin: 0 0 1.75rem; }
+.ellamara-account-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.ellamara-account-card { gap: .8rem; padding: 1.4rem; border: 1px solid #ffffff12; background: #ffffff04; }
+.ellamara-account-card.is-primary { grid-column: 1 / -1; background: #b08a4a16; border-color: #b08a4a60; }
+.ellamara-account-card > svg { color: #e3c389; width: 28px; height: 28px; }
+.ellamara-account-card strong { display: flex; justify-content: space-between; gap: .75rem; font-size: 1.1rem; }
+.ellamara-account-card strong span { color: #e3c389; }
+.woocommerce-account .woocommerce-MyAccount-content .wc-block-components-notice-banner { padding: 1rem !important; font-size: .9rem; }
+.woocommerce-account .woocommerce-MyAccount-content .wc-block-components-notice-banner__content { display: flex; flex-direction: column; gap: .5rem; }
+.woocommerce-account .woocommerce-MyAccount-content .wc-block-components-notice-banner__content > a.button { display: flex; width: fit-content; margin-top: .75rem; }
+@media(max-width:1000px) { .woocommerce-account main .woocommerce:has(.ellamara-account-sidebar) { grid-template-columns: 235px minmax(0, 1fr); gap: 1rem; } }
+@media(max-width:700px) {
+  .woocommerce-account main .woocommerce:has(.ellamara-account-sidebar) { grid-template-columns: minmax(0, 1fr); }
+  .ellamara-account-sidebar { grid-column: 1; grid-row: auto; padding: .75rem; }
+  .woocommerce-account .woocommerce-MyAccount-content { grid-column: 1; grid-row: auto; min-height: 0; }
+  .ellamara-account-help { margin-top: .75rem; padding: .75rem .5rem; }
+  .ellamara-account-help p { display: none; }
+  .ellamara-account-help h2 { display: inline; margin-right: .5rem; font-size: .9rem; }
+  .ellamara-account-help a { font-size: .85rem; }
+  .ellamara-account-cards { grid-template-columns: minmax(0, 1fr); }
+  .ellamara-account-card.is-primary { grid-column: 1; }
+}
+
+
+/* Give every account destination a visible interactive surface. */
+.woocommerce-account .ellamara-account-sidebar .woocommerce-MyAccount-navigation ul {
+  display: grid;
+  gap: .65rem;
+}
+.woocommerce-account .ellamara-account-sidebar .woocommerce-MyAccount-navigation li { margin: 0; }
+.woocommerce-account .ellamara-account-sidebar .woocommerce-MyAccount-navigation li a {
+  box-sizing: border-box;
+  min-height: 52px;
+  height: 100%;
+  border: 1px solid #b08a4a80;
+  background: #ffffff08;
+  padding: .8rem .9rem;
+}
+.woocommerce-account .ellamara-account-sidebar .woocommerce-MyAccount-navigation li a::after {
+  content: "›";
+  margin-inline-start: auto;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+.woocommerce-account .ellamara-account-sidebar .woocommerce-MyAccount-navigation li:not(.is-active) a:hover {
+  background: #b08a4a26;
+  border-color: #e3c389;
+}
+.woocommerce-account .ellamara-account-sidebar .woocommerce-MyAccount-navigation li.is-active a {
+  background: #b08a4a;
+  border-color: #b08a4a;
+  color: #210707;
+  font-weight: 700;
+}
+.woocommerce-account .ellamara-account-sidebar .woocommerce-MyAccount-navigation a:focus-visible {
+  outline: 3px solid #f2ebdd;
+  outline-offset: 3px;
+}
+
+/* Keep sign-out recognizable as a separate account action. */
+.woocommerce-account .ellamara-account-sidebar .ellamara-account-logout {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .65rem;
+  width: 100%;
+  min-height: 52px;
+  margin-block-start: 1rem;
+  padding: .8rem 1rem;
+  border: 1px solid #db9ab180;
+  border-radius: 10px;
+  background: #db9ab10d;
+  color: #f2ebdd;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: none;
+}
+.woocommerce-account .ellamara-account-sidebar .ellamara-account-logout:hover {
+  border-color: #db9ab1;
+  background: #db9ab126;
+  color: #f2ebdd;
+  text-decoration: none;
+}
+.woocommerce-account .ellamara-account-sidebar .ellamara-account-logout:focus-visible {
+  outline: 3px solid #f2ebdd;
+  outline-offset: 3px;
+}
+
+/* A readable form width and distinct groups for personal data and security. */
+.woocommerce-account .woocommerce-MyAccount-content:has(.woocommerce-EditAccountForm) {
+  padding: clamp(1rem, 3vw, 2.5rem);
+}
+.woocommerce-account .woocommerce-MyAccount-content .woocommerce-EditAccountForm {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
+.woocommerce-account .woocommerce-MyAccount-content:has(.woocommerce-EditAccountForm) > .woocommerce-notices-wrapper,
+.woocommerce-account .woocommerce-MyAccount-content:has(.woocommerce-EditAccountForm) > .wc-block-components-notice-banner {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  margin-inline: 0;
+}
+.ellamara-account-form-heading { margin-bottom: 1.5rem; }
+.ellamara-account-form-heading h2 { margin: 0 0 .5rem; font-size: 1.5rem; color: #f2ebdd; }
+.ellamara-account-form-heading p { margin: 0; color: #db9ab1; line-height: 1.65; font-size: 1rem; max-width: 65ch; }
+.woocommerce-account .woocommerce-EditAccountForm .form-row { margin-block: 0 1.25rem; padding: 0; }
+.woocommerce-account .woocommerce-EditAccountForm label { display: block; margin-bottom: .5rem; font-size: 1rem; font-weight: 600; line-height: 1.5; }
+.woocommerce-account .woocommerce-EditAccountForm input.input-text {
+  width: 100%; box-sizing: border-box; min-height: 48px; padding: .75rem .85rem;
+  font-size: 1rem; line-height: 1.5; border: 1px solid #b08a4a99; background: #f2ebdd; color: #210707;
+}
+.woocommerce-account .woocommerce-EditAccountForm #account_display_name_description {
+  display: block; margin-top: .5rem; font-size: .875rem; line-height: 1.6; color: #db9ab1;
+}
+.woocommerce-account .woocommerce-EditAccountForm #account_display_name_description em { font-style: normal; }
+.woocommerce-account .woocommerce-EditAccountForm .ellamara-account-password-guide {
+  clear: both; margin: .5rem 0 1rem; padding: .85rem 1rem; border-left: 3px solid #b08a4a;
+  background: #b08a4a10; color: #f2ebdd; font-size: .9rem; line-height: 1.6;
+}
+.woocommerce-account .woocommerce-MyAccount-content .woocommerce-EditAccountForm fieldset {
+  margin: 0 0 1.5rem; padding: 1.25rem; border-radius: 12px; border: 1px solid #b08a4a60; background: #ffffff04;
+}
+.woocommerce-account .woocommerce-EditAccountForm legend { padding-inline: .5rem; font-size: 1.15rem; }
+.woocommerce-account .woocommerce-EditAccountForm fieldset .form-row:last-child { margin-bottom: 0; }
+.woocommerce-account .woocommerce-EditAccountForm button[name="save_account_details"] {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 48px;
+  padding: .75rem 1.75rem; border: 1px solid #b08a4a; border-radius: 10px;
+  background: #b08a4a; color: #210707; font-size: 1rem; font-weight: 700; line-height: 1.4; cursor: pointer;
+}
+.woocommerce-account .woocommerce-EditAccountForm button[name="save_account_details"]:hover { background: #e3c389; }
+@media(max-width:540px) {
+  .woocommerce-account .woocommerce-EditAccountForm .form-row-first,
+  .woocommerce-account .woocommerce-EditAccountForm .form-row-last { float: none; width: 100%; }
+  .woocommerce-account .woocommerce-MyAccount-content .woocommerce-EditAccountForm fieldset { padding: 1rem; }
+  .woocommerce-account .woocommerce-EditAccountForm button[name="save_account_details"] { width: 100%; }
+}

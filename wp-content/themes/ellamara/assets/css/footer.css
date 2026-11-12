@@ -1,0 +1,29 @@
+/* Native blocks remain editable in the Site Editor. */
+.ellamara-store-footer { padding-block: clamp(3rem, 6vw, 5rem) 1.5rem; }
+.ellamara-store-footer .ellamara-footer-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.45fr) repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 2.5rem); align-items: start; }
+.ellamara-store-footer .ellamara-footer-grid > * { margin: 0; min-width: 0; }
+.ellamara-footer-identity .wp-block-site-logo { margin: 0 0 .5rem; }
+.ellamara-store-footer .wp-block-site-logo a { padding: 0; }
+.ellamara-store-footer .wp-block-site-title { color: #f2ebdd; font-size: 1.35rem; line-height: 1.3; margin-block: 1rem .65rem; font-weight: 650; }
+.ellamara-store-footer .wp-block-site-title a { text-decoration: none; }
+.ellamara-store-footer .ellamara-footer-identity p { font-size: .95rem; line-height: 1.7; color: #db9ab1; margin-block: .5rem; }
+.ellamara-footer-column h2 { color: #b08a4a; font-size: 1rem; letter-spacing: .07em; text-transform: uppercase; margin: 0 0 1.1rem; }
+.ellamara-store-footer .wp-block-navigation { min-width: 0; font-size: .95rem; color: #f2ebdd; }
+.ellamara-store-footer .wp-block-navigation__container { gap: .15rem; align-items: flex-start; }
+.ellamara-store-footer .wp-block-navigation-item__content { min-height: 44px; display: inline-flex; align-items: center; padding-block: .5rem; text-decoration: none; }
+.ellamara-store-footer a:hover { color: #db9ab1; text-decoration: underline; text-underline-offset: .3em; }
+.ellamara-store-footer a:focus-visible { outline: 2px solid #f2ebdd; outline-offset: 4px; border-radius: 3px; }
+.ellamara-store-footer .ellamara-footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .5rem 2rem; margin-block-start: 3rem; padding-block-start: .75rem; border-top: 1px solid #db9ab133; }
+.ellamara-footer-bottom p { margin: 0; font-size: .85rem; color: #f2ebdd; }
+.ellamara-footer-legal a { min-height: 44px; display: inline-flex; align-items: center; }
+.ellamara-footer-contact p { font-size: .9rem; color: #f2ebdd; margin-block: .35rem; line-height: 1.7; }
+.ellamara-footer-contact a { overflow-wrap: anywhere; min-height: 44px; }
+.ellamara-footer-contact .ellamara-footer-contact-label { color: #db9ab1; margin-bottom: 0; }
+.ellamara-placeholder { color: #db9ab1; }
+@media (max-width: 1050px) {
+    .ellamara-store-footer .ellamara-footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 1rem; }
+    .ellamara-footer-identity { grid-column: 1 / -1; }
+}
+@media (max-width: 360px) {
+    .ellamara-store-footer .ellamara-footer-grid { grid-template-columns: minmax(0, 1fr); }
+}

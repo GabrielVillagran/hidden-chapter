@@ -1,0 +1,13 @@
+.ellamara-recovery.ellamara-not-found { max-width: 1200px !important; margin-inline: auto !important; padding: clamp(1.25rem,4vw,3rem); }
+.ellamara-recovery.ellamara-not-found > .ellamara-recovery-grid { max-width: none !important; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(1.5rem,4vw,3rem); align-items: center; }
+.ellamara-recovery-art { margin: 0; width: 100%; }
+.ellamara-recovery-art img { display: block; width: 100%; height: auto; }
+.ellamara-recovery-copy { min-width: 0; }
+.ellamara-recovery-copy h1 { font-size: clamp(1.8rem,3vw,2.6rem); line-height: 1.2; margin-block: .5rem 1rem; }
+.ellamara-recovery-copy > p { line-height: 1.7; }
+.ellamara-recovery-copy .wp-block-search { width: 100%; }
+.ellamara-recovery-copy .wp-block-search__label { display: block; margin-bottom: .5rem; }
+.ellamara-recovery-copy .wp-block-search__input { width: 100%; }
+.ellamara-recovery-copy .wp-block-button__link { min-height: 46px; box-sizing: border-box; }
+@media(max-width:780px) { .ellamara-recovery.ellamara-not-found > .ellamara-recovery-grid { grid-template-columns: minmax(0,1fr); } .ellamara-recovery-art { max-width: 390px; margin-inline: auto; } }
+@media(max-width:420px) { .ellamara-recovery-copy .wp-block-search__inside-wrapper { flex-wrap: wrap; } .ellamara-recovery-copy .wp-block-search__button { width: 100%; } .ellamara-recovery-copy .wp-block-button,.ellamara-recovery-copy .wp-block-button__link { width: 100%; } }

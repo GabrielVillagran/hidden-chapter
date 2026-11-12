@@ -1,0 +1,18 @@
+.ellamara-review-carousel { min-width: 0; }
+.ellamara-review-carousel [hidden] { display: none !important; }
+.ellamara-review-controls { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; color: #f2ebdd; font-size: .95rem; }
+.ellamara-review-controls > div { display: flex; gap: .5rem; }
+.ellamara-review-controls button { display: inline-flex; align-items: center; justify-content: center; width: 46px; min-height: 46px; padding: 0; border: 1px solid #b08a4a; border-radius: 50%; background: #330a0a; color: #f2ebdd; font-size: 1.4rem; cursor: pointer; }
+.ellamara-review-controls button:hover:not([aria-disabled="true"]) { background: #b08a4a; color: #210707; }
+.ellamara-review-controls button[aria-disabled="true"] { opacity: .4; cursor: default; }
+.ellamara-review-controls button:focus-visible { outline: 3px solid #f2ebdd; outline-offset: 3px; }
+.ellamara-review-slide { min-width: 0; }
+.ellamara-review-carousel .ellamara-editorial-review { box-sizing: border-box; margin: 0; padding: clamp(1.2rem, 3vw, 2.4rem); overflow-wrap: anywhere; }
+.ellamara-review-carousel[data-review-ready] .ellamara-editorial-review { min-height: 14rem; display: flex; flex-direction: column; justify-content: center; gap: 1rem; }
+.ellamara-review-carousel .ellamara-editorial-review p { margin: 0; max-width: 75ch; line-height: 1.7; }
+.ellamara-review-carousel .ellamara-editorial-review cite { display: block; margin: 0; color: #db9ab1; font-size: .95rem; }
+.ellamara-review-carousel:not([data-review-ready]) .ellamara-review-slide + .ellamara-review-slide { margin-top: 1rem; }
+@media(max-width: 600px) {
+  .ellamara-review-controls { gap: .5rem; }
+  .ellamara-review-carousel[data-review-ready] .ellamara-editorial-review { min-height: 12rem; }
+}

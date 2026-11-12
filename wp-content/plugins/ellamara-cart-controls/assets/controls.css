@@ -1,0 +1,67 @@
+.ellamara-purchase { width: 100%; margin-top: auto; }
+.ellamara-purchase [hidden] { display: none !important; }
+.ellamara-purchase.is-ready .ellamara-native-button { display: none; }
+.ellamara-cart-control { width: 100%; }
+.ellamara-add, .ellamara-stepper {
+  width: 100%; min-height: 46px; border: 1px solid var(--wp--preset--color--gold, #b08a4a);
+  border-radius: 10px; font: inherit; font-weight: 650;
+}
+.ellamara-add {
+  display: inline-flex; justify-content: center; align-items: center; gap: .5rem; padding: .65rem 1rem;
+  background: var(--wp--preset--color--gold, #b08a4a); color: #1a1718; cursor: pointer;
+  box-shadow: 0 3px 10px #0002;
+}
+.ellamara-add:hover:not(:disabled) { background: var(--wp--preset--color--ivory, #f2ebdd); }
+.ellamara-in-cart { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .65rem; padding-block: .25rem; }
+.ellamara-in-cart-label { color: #db9ab1; font-size: .875rem; font-weight: 600; display: inline-flex; align-items: center; gap: .4rem; }
+.ellamara-in-cart-label > span { color: #e3c389; }
+.ellamara-stepper { display: grid; grid-template-columns: 44px 44px 44px; width: 134px; flex: 0 0 auto; background: #330a0a; overflow: visible; }
+.ellamara-stepper button {
+  min-width: 44px; min-height: 44px; padding: 0; border: 0; border-radius: 9px;
+  background: transparent; color: var(--wp--preset--color--ivory, #f2ebdd); font-size: 1.5rem; cursor: pointer;
+}
+.ellamara-stepper button:hover:not(:disabled) { background: #b08a4a33; }
+.ellamara-quantity { display: grid; place-items: center; color: var(--wp--preset--color--ivory, #f2ebdd); font-weight: 750; font-variant-numeric: tabular-nums; }
+.ellamara-purchase button:disabled { opacity: .5; cursor: not-allowed; }
+.ellamara-purchase button:focus-visible { outline: 3px solid #f2ebdd; outline-offset: 3px; }
+.ellamara-cart-status { font-size: .8rem; line-height: 1.4; color: var(--wp--preset--color--rose, #db9ab1); margin: .45rem 0 0; }
+.ellamara-cart-status:empty { display: none; }
+.ellamara-cart-status:not(.is-error) { position: absolute; width: 1px; height: 1px; padding: 0; margin: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.ellamara-cart-status.is-error { color: #ffb6c6; }
+/* The purchase area keeps the same width in both states. The cart state is
+   centred above a roomy quantity control rather than pushed to either edge. */
+.ellamara-purchase .ellamara-add {
+  box-sizing: border-box;
+  height: 46px;
+  min-height: 46px;
+  padding: .5rem .75rem;
+  white-space: nowrap;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.ellamara-purchase .ellamara-in-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: .5rem;
+  padding: 0;
+}
+.ellamara-purchase .ellamara-in-cart-label {
+  justify-content: center;
+  min-height: 24px;
+  font-size: .9rem;
+}
+.ellamara-purchase .ellamara-stepper {
+  width: 100%;
+  min-height: 46px;
+  grid-template-columns: minmax(48px, 1fr) minmax(64px, 1fr) minmax(48px, 1fr);
+  background: #ffffff05;
+}
+.ellamara-purchase .ellamara-stepper button { min-height: 44px; width: 100%; }
+.ellamara-purchase .ellamara-quantity { font-size: 1.1rem; }
+@media(max-width: 600px) {
+  .ellamara-purchase .ellamara-add { font-size: .9rem; gap: .35rem; padding-inline: .6rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ellamara-purchase button { transition: background-color .15s ease, opacity .15s ease; }
+}

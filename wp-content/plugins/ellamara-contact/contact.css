@@ -1,0 +1,26 @@
+body.page main:has(.ellamara-contact-layout) { max-width: 1160px; margin-inline: auto; }
+main:has(.ellamara-contact-layout) > .wp-block-post-title,
+main:has(.ellamara-contact-layout) > .wp-block-post-content,
+.wp-block-post-content > .ellamara-contact-layout { max-width: 1100px !important; width: 100%; }
+main:has(.ellamara-contact-layout) h1 { font-size: clamp(2rem, 4vw, 3rem); }
+.ellamara-contact-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 2rem; align-items: start; }
+.ellamara-contact-intro, .ellamara-contact-panel { min-width: 0; background: #330a0af5; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid #b08a4a40; border-radius: 16px; color: #f2ebdd; }
+.ellamara-contact-intro h2 { font-size: clamp(1.6rem, 3vw, 2.25rem); line-height: 1.25; }
+.ellamara-contact-panel h2 { font-size: 1.5rem; margin-top: 0; }
+.ellamara-contact-eyebrow, .ellamara-contact-tip { color: #db9ab1; }
+.ellamara-contact-tip { font-size: .875rem; line-height: 1.65; }
+.ellamara-contact-email { margin-block: 2rem; }
+.ellamara-contact-email h3 { font-size: 1rem; color: #e3c389; }
+.ellamara-contact-email a { overflow-wrap: anywhere; min-height: 44px; display: inline-flex; align-items: center; }
+.ellamara-contact-form { display: grid; gap: 1.25rem; }
+.ellamara-contact-form label { display: block; margin-bottom: .5rem; font-weight: 600; }
+.ellamara-contact-form input, .ellamara-contact-form textarea { width: 100%; box-sizing: border-box; font: inherit; padding: .8rem 1rem; background: #f2ebdd; color: #1a1718; border: 1px solid #b08a4a; border-radius: 8px; min-height: 48px; }
+.ellamara-contact-form textarea { resize: vertical; }
+.ellamara-contact-form button { min-height: 50px; padding: .85rem 1.5rem; border: 1px solid #b08a4a; border-radius: 10px; background: #b08a4a; color: #1a1718; font: inherit; font-weight: 700; cursor: pointer; }
+.ellamara-contact-form button:hover { background: #f2ebdd; }
+.ellamara-contact-form :is(input,textarea,button):focus-visible { outline: 3px solid #f2ebdd; outline-offset: 3px; }
+.ellamara-contact-error, .ellamara-contact-success { border-radius: 10px; padding: 1rem; margin-block: 1rem; color: #f2ebdd; background: #1a1718; border-left: 4px solid #db9ab1; }
+.ellamara-contact-success { border-color: #b08a4a; }
+.ellamara-contact-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+#contacto-formulario { scroll-margin-top: 2rem; }
+@media(max-width: 760px) { .ellamara-contact-layout { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }

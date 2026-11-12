@@ -1,0 +1,21 @@
+.ellamara-upcoming-recovery { margin-block: .75rem 1.5rem; padding: 1.1rem 1.25rem; background: #ffffff07; border-radius: 12px; }
+.ellamara-upcoming-recovery p { margin: 0 0 1rem; color: #f2ebdd; line-height: 1.6; }
+.ellamara-available-button { display: inline-flex; align-items: center; justify-content: center; gap: .75rem; min-height: 46px; padding: .65rem 1.15rem; box-sizing: border-box; border: 1px solid #b08a4a; border-radius: 10px; background: #b08a4a; color: #210707 !important; font-weight: 700; text-decoration: none; }
+.ellamara-available-button:hover { background: #f2ebdd; border-color: #f2ebdd; }
+.ellamara-available-alternatives { margin-block: 2.5rem; min-width: 0; }
+.ellamara-alternatives-heading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem; }
+.ellamara-alternatives-heading h2 { margin: 0 0 .5rem; }
+.ellamara-alternatives-heading p { margin: 0; color: #f2ebdd; }
+.ellamara-alternatives-heading > a { min-height: 44px; display: inline-flex; align-items: center; gap: .5rem; color: #e3c389; }
+.ellamara-available-alternatives ul.products { display: grid !important; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.25rem; margin: 0 !important; padding: 0; }
+.ellamara-available-alternatives ul.products::before, .ellamara-available-alternatives ul.products::after { content: none !important; }
+.ellamara-available-alternatives ul.products li.product { width: auto !important; min-width: 0; margin: 0 !important; padding: 1rem; box-sizing: border-box; display: flex; flex-direction: column; background: #330a0af5; border: 1px solid #b08a4a55; border-radius: 14px; }
+.ellamara-available-alternatives .woocommerce-loop-product__link { display: flex; flex-direction: column; flex: 1; color: #f2ebdd; text-decoration: none; }
+.ellamara-available-alternatives ul.products li.product img { height: 220px !important; width: 100% !important; object-fit: contain; box-sizing: border-box; padding: .75rem; background: #f2ebdd; border-radius: 8px; margin: 0 0 1rem !important; }
+.ellamara-available-alternatives .woocommerce-loop-product__title { font-size: 1.05rem !important; line-height: 1.45; color: #f2ebdd; min-height: 2.9em; padding: 0 !important; margin: 0 0 .75rem !important; }
+.ellamara-available-alternatives ul.products li.product .price { margin-top: auto; padding-top: .5rem; }
+.ellamara-available-alternatives .price, .ellamara-available-alternatives .price .amount { color: #e3c389 !important; font-size: 1.2rem; }
+.ellamara-available-alternatives .ellamara-purchase { margin-top: 1rem; }
+.ellamara-available-alternatives a:focus-visible { outline: 3px solid #f2ebdd; outline-offset: 3px; }
+@media(max-width: 780px) { .ellamara-available-alternatives ul.products { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width: 540px) { .ellamara-available-alternatives ul.products { grid-template-columns: minmax(0,1fr); } .ellamara-available-button { width: 100%; } }

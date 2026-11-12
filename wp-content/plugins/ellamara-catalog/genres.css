@@ -1,0 +1,109 @@
+/* Unified, keyboard-native catalog filters and result navigation. */
+main .ellamara-catalog h1 { margin-bottom: .6rem; font-size: clamp(1.85rem, 3vw, 2.75rem); }
+.ellamara-catalog-subtitle { color: #f2ebdd; font-size: 1.05rem; line-height: 1.6; margin-block: 0 1.5rem; }
+.ellamara-browse { background: #330a0af5; border-radius: 18px; padding: 1.25rem; margin-block: 1.25rem 2rem; box-shadow: 0 10px 32px #0002; }
+.ellamara-categories { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.5rem; }
+.ellamara-categories a { display: flex; justify-content: center; align-items: center; box-sizing: border-box; min-width: 150px; min-height: 48px; padding: .65rem 1.4rem; border-radius: 10px; color: #f2ebdd; background: #ffffff06; text-decoration: none; font-size: 1rem; font-weight: 600; text-align: center; line-height: 1.4; }
+.ellamara-categories a[aria-current] { background: #f2ebdd; color: #330a0a; }
+.ellamara-categories a:not([aria-current]):hover { background: #ffffff10; color: #e3c389; }
+.ellamara-genre { display: inline-flex; justify-content: center; align-items: center; min-height: 44px; box-sizing: border-box; padding: .5rem 1rem; border: 1px solid #b08a4a70; border-radius: 999px; background: transparent; color: #f2ebdd; text-decoration: none; font-size: .95rem; line-height: 1.4; }
+.ellamara-genre:hover { color: #f2ebdd; background: #65313c; border-color: #db9ab1; }
+.ellamara-genre.is-active { background: #b08a4a; color: #1a1718; border-color: #b08a4a; font-weight: 700; }
+.ellamara-browse-status { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: .5rem 1.25rem; min-height: 44px; margin-top: 1.25rem; padding-top: .75rem; border-top: 1px solid #ffffff12; }
+.ellamara-browse-status p { margin: 0; color: #db9ab1; font-size: .9rem; font-variant-numeric: tabular-nums; }
+.ellamara-clear-filters { display: inline-flex; align-items: center; gap: .65rem; min-height: 44px; color: #f2ebdd; font-size: .9rem; text-underline-offset: .25em; }
+.ellamara-clear-filters span { font-size: 1.25rem; }
+.ellamara-browse a:focus-visible { outline: 3px solid #f2ebdd; outline-offset: 3px; }
+@media(max-width: 600px) {
+  .ellamara-browse { padding: 1rem; border-radius: 14px; }
+  .ellamara-categories { gap: .5rem; margin-bottom: 1.25rem; }
+  .ellamara-categories a { flex: 1 1 calc(50% - .5rem); min-width: 0; font-size: .95rem; min-height: 48px; padding: .65rem .75rem; }
+  .ellamara-browse-status { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .25rem 1rem; }
+  .ellamara-browse-status .ellamara-suggestions-link { grid-column: 1 / -1; margin-left: 0; }
+  .ellamara-genre { padding-inline: .85rem; font-size: .875rem; }
+  .ellamara-catalog-subtitle { font-size: .95rem; }
+}
+
+.ellamara-suggestions-link { display: inline-flex; align-items: center; gap: .6rem; min-height: 44px; margin-left: auto; color: #e3c389; font-weight: 600; font-size: .9rem; text-decoration: none; }
+.ellamara-suggestions-link:hover { text-decoration: underline; text-underline-offset: .25em; }
+.ellamara-catalog-filters { display: grid; grid-template-columns: minmax(220px,340px) minmax(220px,310px) auto; justify-content: start; align-items: end; gap: 1rem; margin: 0; }
+.ellamara-filter-field { min-width: 0; }
+.ellamara-filter-field label { display: block; margin: 0 0 .5rem; color: #db9ab1; font-size: .875rem; font-weight: 600; }
+.ellamara-filter-field select { box-sizing: border-box; width: 100%; min-width: 0; min-height: 48px; padding: .65rem .8rem; border: 1px solid #b08a4a70; border-radius: 10px; background: #f2ebdd; color: #330a0a; font: inherit; font-size: .95rem; }
+.ellamara-catalog-filters button { min-height: 48px; padding: .65rem 1.2rem; border: 1px solid #b08a4a; border-radius: 10px; background: #b08a4a; color: #210707; font: inherit; font-weight: 700; cursor: pointer; white-space: nowrap; }
+.ellamara-catalog-filters button:hover { background: #f2ebdd; border-color: #f2ebdd; }
+.ellamara-catalog-filters :is(select,button):focus-visible { outline: 3px solid #f2ebdd; outline-offset: 3px; }
+@media(max-width:780px) { .ellamara-catalog-filters { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } .ellamara-catalog-filters button { grid-column: 1 / -1; } }
+@media(max-width:540px) { .ellamara-catalog-filters { grid-template-columns: minmax(0,1fr); gap: .85rem; } }
+
+
+/* Shared dimensions prevent inherited button typography from shifting the action. */
+.ellamara-catalog-filters :is(select, button) {
+  box-sizing: border-box;
+  height: 3rem;
+  min-height: 3rem;
+  margin: 0;
+  padding-block: 0;
+  font-size: .95rem;
+  line-height: 1.25;
+}
+.ellamara-catalog-filters button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: end;
+}
+
+/* Feathered glass softens the illustration without hiding its silhouette. */
+.home main .ellamara-catalog { position: relative; isolation: isolate; }
+.home main .ellamara-catalog::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  top: -3rem;
+  left: -2rem;
+  right: 0;
+  height: 17rem;
+  background: rgb(51 10 10 / 14%);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  -webkit-mask-image: radial-gradient(ellipse at 30% 48%, #000 20%, transparent 72%);
+  mask-image: radial-gradient(ellipse at 30% 48%, #000 20%, transparent 72%);
+}
+.home main .ellamara-catalog h1 { text-shadow: 0 2px 5px #210707, 0 0 14px #330a0acc; }
+.home .ellamara-catalog-subtitle { max-width: 65ch; line-height: 1.65; text-shadow: 0 1px 4px #210707; }
+@media(max-width:540px) {
+  .home main .ellamara-catalog::before { height: 21rem; }
+}
+
+/* Match the introduction's feathered glass behind catalog navigation. */
+.ellamara-browse {
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+  box-shadow: none;
+}
+.ellamara-browse::before {
+  content: "";
+  position: absolute;
+  inset: -1.5rem;
+  z-index: -1;
+  pointer-events: none;
+  background: rgb(51 10 10 / 18%);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  -webkit-mask-image: radial-gradient(ellipse closest-side, #000 65%, transparent 100%);
+  mask-image: radial-gradient(ellipse closest-side, #000 65%, transparent 100%);
+}
+
+.ellamara-catalog-introduction { position: relative; isolation: isolate; padding-block: 1rem .5rem; }
+.ellamara-catalog-introduction::before {
+  content: ""; position: absolute; inset: -1.5rem; z-index: -1; pointer-events: none;
+  background: rgb(51 10 10 / 18%); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+  mask-image: radial-gradient(ellipse closest-side, #000 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse closest-side, #000 55%, transparent 100%);
+}
+.ellamara-catalog-eyebrow { margin: 0 0 .65rem; color: #db9ab1; font-size: .8rem; font-weight: 600; letter-spacing: .1em; }
+.ellamara-catalog-introduction h1 { margin: 0 0 .65rem; color: #b08a4a; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; text-shadow: 0 2px 5px #210707; }
+.ellamara-catalog-description { margin: 0; max-width: 65ch; color: #f2ebdd; font-size: 1.05rem; line-height: 1.65; text-shadow: 0 1px 4px #210707; }
