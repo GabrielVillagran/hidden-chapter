@@ -4,6 +4,16 @@
 .ellamara-bookmark-prices > div > span { color: #f2ebdd; font-size: .85rem; }
 .ellamara-bookmark-prices :is(.wp-block-woocommerce-product-price, .wc-block-components-product-price) { margin: 0; }
 .ellamara-bookmark-prices .amount { color: #e3c389; font-size: 1.2rem; font-weight: 700; }
+.ellamara-bookmark-details { padding: clamp(1rem, 3vw, 2rem); }
+.ellamara-bookmark-details h2 { margin-block: 0 1rem; }
+.ellamara-bookmark-collections {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+    gap: 1rem; max-width: 40rem; padding: 0; margin: 0; list-style: none;
+}
+.ellamara-bookmark-collections li { overflow: hidden; border-radius: 12px; background: #421414; }
+.ellamara-bookmark-collections img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: #f2ebdd; }
+.ellamara-bookmark-collections span { display: block; padding: .75rem 1rem; color: #f2ebdd; font-weight: 650; }
+.ellamara-bookmark-reference { margin-block: 1rem 0; font-size: .85rem; color: #db9ab1; overflow-wrap: anywhere; }
 .single-product .woocommerce-product-gallery img.zoomImg { max-width: none !important; max-height: none !important; object-fit: fill !important; border-radius: 0; background: transparent; }
 .single-product main > .wp-block-columns:has(.wp-block-woocommerce-product-image-gallery) {
   display: grid !important; grid-template-columns: minmax(250px, .75fr) minmax(0, 1.25fr);

@@ -114,8 +114,35 @@ function publication_date(string $value): string {
     $months = [1=>'enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
     return (isset($parts[3]) ? $day . ' de ' : '') . $months[$month] . ' de ' . $parts[1];
 }
+function bookmark_details(\WC_Product $product): bool {
+    if (!$product->is_type('variable') || !has_term('marcapaginas', 'product_cat', $product->get_id())) {
+        return false;
+    }
+
+    $cards = '';
+    foreach ($product->get_visible_children() as $id) {
+        $variation = wc_get_product($id);
+        $collection = $variation ? $variation->get_attribute('coleccion') : '';
+        if ($collection === '') { continue; }
+
+        $image = wp_get_attachment_image($variation->get_image_id(), 'medium', false, ['loading' => 'lazy']);
+        $cards .= '<li>' . $image . '<span>' . esc_html($collection) . '</span></li>';
+    }
+    if ($cards === '') { return false; }
+
+    echo '<section class="ellamara-bookmark-details" aria-labelledby="ellamara-bookmark-collections">'
+        . '<h2 id="ellamara-bookmark-collections">Colecciones</h2>'
+        . '<ul class="ellamara-bookmark-collections">' . $cards . '</ul>';
+    if ($product->get_sku()) {
+        echo '<p class="ellamara-bookmark-reference">Referencia: ' . esc_html($product->get_sku()) . '</p>';
+    }
+    echo '</section>';
+    return true;
+}
+
 function details(): void {
     global $product;
+    if (bookmark_details($product)) { return; }
     $book = is_book($product);
     echo '<h2>' . esc_html($book ? 'Detalles del libro' : 'Detalles del producto') . '</h2><table class="ellamara-book-details"><caption class="screen-reader-text">Ficha del producto</caption><tbody>';
     foreach (fields() as $key => $label) {
