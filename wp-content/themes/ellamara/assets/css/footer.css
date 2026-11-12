@@ -3,14 +3,17 @@
 .ellamara-store-footer .ellamara-footer-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.45fr) repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 2.5rem); align-items: start; }
 .ellamara-store-footer .ellamara-footer-grid > * { margin: 0; min-width: 0; }
 .ellamara-footer-identity .wp-block-site-logo { margin: 0 0 .5rem; }
-.ellamara-store-footer .ellamara-footer-social { gap: .5rem; margin-block: .9rem 0; }
-.ellamara-store-footer .ellamara-footer-social .wp-social-link { color: #e3c389; transform: none; }
+.ellamara-store-footer .ellamara-footer-social { gap: .25rem .45rem; margin-block: .9rem 0; }
+.ellamara-store-footer .ellamara-footer-social .wp-social-link { transform: none; }
 .ellamara-store-footer .ellamara-footer-social .wp-block-social-link-anchor {
-    display: grid; place-items: center; box-sizing: border-box;
-    width: 44px; height: 44px; padding: 0;
-    border: 1px solid #b08a4a80; border-radius: 50%; color: inherit;
+    display: inline-flex; align-items: center; gap: .45rem; box-sizing: border-box;
+    min-height: 44px; padding: .4rem .55rem; border-radius: 8px;
+    color: #f2ebdd; font-size: .875rem; line-height: 1.3; text-decoration: none;
 }
-.ellamara-store-footer .ellamara-footer-social .wp-block-social-link-anchor:hover { background: #e3c389; color: #330a0a; }
+.ellamara-store-footer .ellamara-footer-social .wp-block-social-link-anchor svg {
+    width: 18px; height: 18px; flex-shrink: 0; fill: #e3c389;
+}
+.ellamara-store-footer .ellamara-footer-social .wp-block-social-link-anchor:hover { background: #592424; color: #f2ebdd; text-decoration: none; }
 .ellamara-store-footer .ellamara-footer-social .wp-block-social-link-anchor:focus-visible { outline: 2px solid #f2ebdd; outline-offset: 3px; }
 .ellamara-store-footer .wp-block-site-logo a { padding: 0; }
 .ellamara-store-footer .wp-block-site-title { color: #f2ebdd; font-size: 1.35rem; line-height: 1.3; margin-block: 1rem .65rem; font-weight: 650; }

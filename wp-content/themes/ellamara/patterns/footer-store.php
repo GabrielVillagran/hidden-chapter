@@ -48,11 +48,11 @@ if ($privacy_id > 0 && get_post_status($privacy_id) === 'publish') {
 <!-- wp:site-logo {"width":88,"shouldSyncIcon":false} /-->
 <!-- wp:site-title {"level":0} /-->
 <!-- wp:paragraph --><p>Libros y accesorios para lectores.</p><!-- /wp:paragraph -->
-<!-- wp:social-links {"className":"is-style-logos-only ellamara-footer-social","layout":{"type":"flex","flexWrap":"wrap"}} -->
+<!-- wp:social-links {"showLabels":true,"className":"is-style-logos-only ellamara-footer-social","layout":{"type":"flex","flexWrap":"wrap"}} -->
 <ul class="wp-block-social-links is-style-logos-only ellamara-footer-social">
-<!-- wp:social-link {"url":"https://www.instagram.com/elcapituloocultodeellamara/","service":"instagram","label":"Ellamara en Instagram"} /-->
-<!-- wp:social-link {"url":"https://www.tiktok.com/@el.capitulo.oculto","service":"tiktok","label":"Ellamara en TikTok"} /-->
-<!-- wp:social-link {"url":"https://www.facebook.com/people/El-cap%C3%ADtulo-oculto-de-Ellamara/61596152495124/","service":"facebook","label":"Ellamara en Facebook"} /-->
+<!-- wp:social-link {"url":"https://www.instagram.com/elcapituloocultodeellamara/","service":"instagram","label":"Instagram"} /-->
+<!-- wp:social-link {"url":"https://www.tiktok.com/@el.capitulo.oculto","service":"tiktok","label":"TikTok"} /-->
+<!-- wp:social-link {"url":"https://www.facebook.com/people/El-cap%C3%ADtulo-oculto-de-Ellamara/61596152495124/","service":"facebook","label":"Facebook"} /-->
 </ul>
 <!-- /wp:social-links -->
 </div><!-- /wp:group -->
