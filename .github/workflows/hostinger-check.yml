@@ -9,7 +9,13 @@ on:
         default: preview
   push:
     branches: [main]
-    paths: ['.github/workflows/hostinger-check.yml']
+    paths:
+      - 'wp-content/themes/ellamara/**'
+      - 'wp-content/plugins/ellamara-cart-controls/**'
+      - 'wp-content/plugins/ellamara-catalog/**'
+      - 'wp-content/plugins/ellamara-contact/**'
+      - 'wp-content/plugins/ellamara-shipping/**'
+      - 'wp-content/plugins/ellamara-suggestions/**'
 permissions:
   contents: read
 concurrency:
@@ -32,7 +38,7 @@ jobs:
       - name: Comparar archivos y ejecutar el modo elegido
         shell: bash
         env:
-          MODE: ${{ inputs.mode || 'preview' }}
+          MODE: ${{ github.event_name == 'push' && 'deploy' || inputs.mode || 'preview' }}
         run: |
           : "${SSH_KEY_BASE64:?Falta HOSTINGER_SSH_KEY_BASE64}"
           : "${SSH_TARGET:?Falta HOSTINGER_SSH_TARGET}"
