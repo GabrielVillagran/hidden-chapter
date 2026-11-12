@@ -1,0 +1,29 @@
+name: Probar conexión a Hostinger
+on:
+  workflow_dispatch:
+permissions: {}
+jobs:
+  connection:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    env:
+      SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+      SSH_TARGET: ${{ secrets.HOSTINGER_SSH_TARGET }}
+      SSH_KNOWN_HOSTS: ${{ secrets.HOSTINGER_KNOWN_HOSTS }}
+    steps:
+      - name: Verificar acceso y ubicación de WordPress
+        shell: bash
+        run: |
+          : "${SSH_KEY:?Falta HOSTINGER_SSH_KEY}"
+          : "${SSH_TARGET:?Falta HOSTINGER_SSH_TARGET}"
+          : "${SSH_KNOWN_HOSTS:?Falta HOSTINGER_KNOWN_HOSTS}"
+          umask 077
+          ssh_dir=$(mktemp -d)
+          trap 'rm -rf -- "$ssh_dir"' EXIT
+          printf '%s\n' "$SSH_KEY" > "$ssh_dir/key"
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > "$ssh_dir/known_hosts"
+          ssh -i "$ssh_dir/key" -o IdentitiesOnly=yes -o BatchMode=yes \
+            -o ConnectTimeout=10 -o StrictHostKeyChecking=yes \
+            -o UserKnownHostsFile="$ssh_dir/known_hosts" -p 65002 -- "$SSH_TARGET" \
+            'cd ~/domains/ellamarastore.com/public_html && test -f wp-load.php && test -d wp-content/plugins && command -v rsync && echo "WordPress localizado"'
