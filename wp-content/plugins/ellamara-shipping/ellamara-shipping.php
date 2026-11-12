@@ -40,10 +40,9 @@ add_filter('woocommerce_get_sections_shipping', static function(array $sections)
 add_filter('woocommerce_get_settings_shipping', static function(array $settings, string $section): array {
     if ($section !== SECTION) { return $settings; }
     $settings = [
-        ['title'=>'Preparación de envíos · Ellamara','type'=>'title','id'=>'ellamara_shipping_preparation','desc'=>'Registra los empaques antes de conectar Envia.com. Se cobra un empaque individual por ejemplar según su ISBN. Ocho títulos usan caja pequeña; los demás libros usan caja grande. No cotiza transporte ni modifica el PVP.'],
+        ['title'=>'Preparación de envíos · Ellamara','type'=>'title','id'=>'ellamara_shipping_preparation','desc'=>'Registra los empaques antes de conectar Envia.com. El empaque se incorpora al precio publicado de cada libro. Estos valores sirven como referencia para calcular el precio, y el transporte se cotiza por separado.'],
         ['title'=>'Ciudad de despacho','id'=>'ellamara_shipping_origin_city','type'=>'text','default'=>'','desc'=>'Ciudad o municipio de origen. La dirección completa se configurará en la cuenta logística; no se mostrará en el footer.'],
         ['title'=>'Referencia de capacidad','id'=>'ellamara_shipping_capacity_note','type'=>'textarea','default'=>'','desc'=>'Referencia general para la preparación. Debe confirmarse qué caja corresponde a cada combinación antes de automatizar el cargo.'],
-        ['title'=>'Modelo de cobro previsto','type'=>'text','id'=>'ellamara_shipping_charge_policy','default'=>'Empaque separado por pedido','custom_attributes'=>['readonly'=>'readonly'],'desc'=>'El PVP de los productos se conserva. El transporte se calculará por separado con el cotizador.'],
         ['type'=>'sectionend','id'=>'ellamara_shipping_preparation'],
     ];
     foreach (packages() as $key=>$package) {
@@ -77,4 +76,3 @@ add_filter('woocommerce_admin_settings_sanitize_option', static function($value,
     }
     return $number;
 },20,3);
-

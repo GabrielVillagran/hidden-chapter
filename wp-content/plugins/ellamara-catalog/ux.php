@@ -33,9 +33,8 @@ add_action('wp',static function():void {
 
 function card_presentation(\WC_Product $product): string {
     $format=trim((string)$product->get_meta('_ellamara_book_format'));
-    $kit=has_term('kits-literarios','product_cat',$product->get_id());
-    if(!$kit && $format===''){return '';}
-    return '<span class="ellamara-card-presentation">'.esc_html(($kit?'Kits literarios':'Libro').($format!==''?' · '.$format:'')).'</span>';
+    if ($format === '') { return ''; }
+    return '<span class="ellamara-card-presentation">' . esc_html('Libro · ' . $format) . '</span>';
 }
 add_action('woocommerce_shop_loop_item_title',static function():void {global $product;if($product instanceof \WC_Product){echo card_presentation($product);}},15);
 add_filter('render_block_core/post-title',static function(string $html,array $attrs,\WP_Block $block):string {

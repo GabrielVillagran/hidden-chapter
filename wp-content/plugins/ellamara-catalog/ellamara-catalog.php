@@ -144,8 +144,6 @@ function catalog_introduction(): string {
         $copy = ['01 · CATÁLOGO COMPLETO', 'Tienda', 'Explora todos nuestros tesoros y encuentra la historia con la que comenzará tu próxima aventura.'];
     } elseif (is_product_category('libros')) {
         $copy = ['02 · LIBROS', 'Libros', 'Descubre nuestro catálogo de libros y déjate enamorar por tu próxima historia favorita.'];
-    } elseif (is_product_category('kits-literarios')) {
-        $copy = ['03 · KITS LITERARIOS', 'Kits literarios', 'Cada gran historia merece un comienzo especial. Encuentra el kit perfecto para acompañar tu próxima lectura.'];
     }
     if (!$copy) { return ''; }
     return '<header class="ellamara-catalog-introduction alignwide"><p class="ellamara-catalog-eyebrow">' . esc_html($copy[0]) . '</p><h1>' . esc_html($copy[1]) . '</h1><p class="ellamara-catalog-description">' . esc_html($copy[2]) . '</p></header>';
@@ -172,16 +170,16 @@ function pills(): string {
     if ($suggestions && $suggestions->post_status === 'publish') {
         $status .= '<a class="ellamara-suggestions-link" href="' . esc_url(get_permalink($suggestions)) . '">Artículos sugeridos <span aria-hidden="true">→</span></a>';
     }
-    $intro = is_front_page() ? '<p class="ellamara-catalog-subtitle alignwide">Descubre libros, kits literarios y accesorios para acompañarte en cada nueva aventura.</p>' : '';
+    $intro = is_front_page() ? '<p class="ellamara-catalog-subtitle alignwide">Descubre libros y accesorios para acompañarte en cada nueva aventura.</p>' : '';
     return catalog_introduction() . $intro . '<section class="ellamara-browse alignwide" aria-label="Explorar el catálogo">' . category_navigation() . $html . $status . '</div></section>';
 }
 
 /** Category switches are separate from genre filters and clear the prior search. */
 function category_navigation(): string {
-    $categories = get_terms(['taxonomy' => 'product_cat', 'slug' => ['libros', 'kits-literarios', 'merch'], 'hide_empty' => true]);
+    $categories = get_terms(['taxonomy' => 'product_cat', 'slug' => ['libros', 'merch'], 'hide_empty' => true]);
     if (is_wp_error($categories)) { return ''; }
     if (count($categories) <= 1) { return ''; }
-    $order = ['libros' => 0, 'kits-literarios' => 1, 'merch' => 2];
+    $order = ['libros' => 0, 'merch' => 1];
     usort($categories, static fn ($a, $b) => ($order[$a->slug] ?? 9) <=> ($order[$b->slug] ?? 9));
     $current = is_product_category() ? (int) get_queried_object_id() : 0;
     $ancestors = $current ? get_ancestors($current, 'product_cat', 'taxonomy') : [];
