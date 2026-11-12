@@ -88,5 +88,6 @@ add_action('plugins_loaded', static function (): void {
 });
 
 require_once __DIR__ . '/pdp.php';
+require_once __DIR__ . '/catalog-mode.php';
 
 

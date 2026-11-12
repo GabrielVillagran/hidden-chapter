@@ -12,5 +12,9 @@ add_action('wp_enqueue_scripts',static function():void {
 });
 add_action('wp_footer',static function():void {
     if(is_admin()){return;}
+    if (function_exists('\\Ellamara\\Cart\\catalog_only') && \Ellamara\Cart\catalog_only()) {
+        echo '<details class="ellamara-support"><summary>Compras próximamente</summary><div class="ellamara-support-panel"><strong>Compras próximamente</strong><p>' . esc_html(\Ellamara\Cart\CATALOG_MESSAGE) . '</p></div></details>';
+        return;
+    }
     echo '<details class="ellamara-support"><summary><span aria-hidden="true">?</span> Ayuda</summary><div class="ellamara-support-panel"><strong>¿Necesitas ayuda?</strong><p>Consulta productos, tu pedido o las opciones de pago.</p><a href="https://wa.me/message/3LIIIQSYBGX5G1" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp ↗</a><a href="'.esc_url(home_url('/contacto/')).'">Enviar un mensaje</a></div></details>';
 });
