@@ -4,7 +4,8 @@ on:
   push:
     branches: [main]
     paths: ['.github/workflows/hostinger-check.yml']
-permissions: {}
+permissions:
+  contents: read
 jobs:
   connection:
     if: github.ref == 'refs/heads/main'
@@ -15,7 +16,11 @@ jobs:
       SSH_TARGET: ${{ secrets.HOSTINGER_SSH_TARGET }}
       SSH_KNOWN_HOSTS: ${{ secrets.HOSTINGER_KNOWN_HOSTS }}
     steps:
-      - name: Verificar acceso y ubicación de WordPress
+      - name: Obtener el código del commit
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verificar acceso y mostrar vista previa
         shell: bash
         run: |
           : "${SSH_KEY_BASE64:?Falta HOSTINGER_SSH_KEY_BASE64}"
@@ -38,7 +43,18 @@ jobs:
             echo '::error::HOSTINGER_SSH_TARGET debe contener solo usuario@servidor, sin puerto ni comando ssh.'
             exit 1
           fi
-          ssh -i "$ssh_dir/key" -o IdentitiesOnly=yes -o BatchMode=yes \
+          ssh_options=(-i "$ssh_dir/key" -o IdentitiesOnly=yes -o BatchMode=yes \
             -o ConnectTimeout=10 -o StrictHostKeyChecking=yes \
-            -o UserKnownHostsFile="$ssh_dir/known_hosts" -p 65002 -- "$SSH_TARGET" \
+            -o UserKnownHostsFile="$ssh_dir/known_hosts" -p 65002)
+          ssh "${ssh_options[@]}" -- "$SSH_TARGET" \
             'cd ~/domains/ellamarastore.com/public_html && test -f wp-load.php && test -d wp-content/plugins && command -v rsync && echo "WordPress localizado"'
+          printf -v ssh_command '%q ' ssh "${ssh_options[@]}"
+          rsync --recursive --checksum --itemize-changes --dry-run --relative --stats \
+            -e "$ssh_command" \
+            wp-content/themes/ellamara/ \
+            wp-content/plugins/ellamara-cart-controls/ \
+            wp-content/plugins/ellamara-catalog/ \
+            wp-content/plugins/ellamara-contact/ \
+            wp-content/plugins/ellamara-shipping/ \
+            wp-content/plugins/ellamara-suggestions/ \
+            "$SSH_TARGET:domains/ellamarastore.com/public_html/"
