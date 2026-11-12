@@ -21,8 +21,13 @@ jobs:
           umask 077
           ssh_dir=$(mktemp -d)
           trap 'rm -rf -- "$ssh_dir"' EXIT
-          printf '%s\n' "$SSH_KEY" > "$ssh_dir/key"
-          printf '%s\n' "$SSH_KNOWN_HOSTS" > "$ssh_dir/known_hosts"
+          printf '%s\n' "$SSH_KEY" | tr -d '\r' > "$ssh_dir/key"
+          printf '%s\n' "$SSH_KNOWN_HOSTS" | tr -d '\r' > "$ssh_dir/known_hosts"
+          SSH_TARGET=$(printf '%s' "$SSH_TARGET" | sed -z 's/^[[:space:]]*//;s/[[:space:]]*$//')
+          if [[ ! "$SSH_TARGET" =~ ^[a-zA-Z0-9_]+@[a-zA-Z0-9.-]+$ ]]; then
+            echo '::error::HOSTINGER_SSH_TARGET debe contener solo usuario@servidor, sin puerto ni comando ssh.'
+            exit 1
+          fi
           ssh -i "$ssh_dir/key" -o IdentitiesOnly=yes -o BatchMode=yes \
             -o ConnectTimeout=10 -o StrictHostKeyChecking=yes \
             -o UserKnownHostsFile="$ssh_dir/known_hosts" -p 65002 -- "$SSH_TARGET" \
