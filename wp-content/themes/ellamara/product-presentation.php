@@ -26,6 +26,21 @@ function product_intro(string $html, array $attributes, \WP_Block $block): strin
 add_filter('render_block_core/post-excerpt', __NAMESPACE__ . '\\product_intro', 30, 3);
 add_filter('render_block_woocommerce/product-summary', __NAMESPACE__ . '\\product_intro', 30, 3);
 
+add_filter('render_block_woocommerce/product-price', static function (string $html, array $attributes, \WP_Block $block): string {
+    if (!is_product()) { return $html; }
+    $id = (int) ($block->context['postId'] ?? get_queried_object_id());
+    if ($id !== get_queried_object_id() || !has_term('marcapaginas', 'product_cat', $id)) { return $html; }
+
+    $product = wc_get_product($id);
+    $pack_price = $product ? $product->get_meta('_ellamara_three_pack_price') : '';
+    if (!is_numeric($pack_price) || (float) $pack_price <= 0 || $product->get_price() === '') { return $html; }
+
+    return '<div class="ellamara-bookmark-prices" aria-label="Precios de marcapáginas">'
+        . '<div><span>Por unidad</span>' . $html . '</div>'
+        . '<div><span>Oferta de 3</span><strong>' . wp_kses_post(wc_price((float) $pack_price)) . '</strong></div>'
+        . '</div>';
+}, 30, 3);
+
 add_filter('render_block_core/post-title', static function (string $html, array $block, \WP_Block $instance): string {
     if (!is_product() || (int) ($instance->context['postId'] ?? 0) !== get_queried_object_id()) { return $html; }
     $product = wc_get_product(get_queried_object_id());
