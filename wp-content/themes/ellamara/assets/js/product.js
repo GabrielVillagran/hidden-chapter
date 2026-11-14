@@ -32,3 +32,42 @@
     update();
   });
 })();
+
+/* Keep the active WooCommerce thumbnail visible and operable by keyboard. */
+(() => {
+  document.querySelectorAll('.woocommerce-product-gallery').forEach(gallery => {
+    const init = () => {
+      const track = gallery.querySelector('.flex-control-thumbs');
+      if (!track) return false;
+      const images = [...track.querySelectorAll('li > img')];
+      const update = () => {
+        images.forEach(image => {
+          const active = image.classList.contains('flex-active');
+          image.setAttribute('aria-pressed', String(active));
+          if (!active) return;
+          const thumb = image.getBoundingClientRect();
+          const row = track.getBoundingClientRect();
+          if (thumb.left < row.left || thumb.right > row.right) {
+            track.scrollLeft += thumb.left + thumb.width / 2 - row.left - row.width / 2;
+          }
+        });
+      };
+      images.forEach((image, index) => {
+        image.tabIndex = 0;
+        image.setAttribute('role', 'button');
+        image.setAttribute('aria-label', image.alt || `Foto ${index + 1}`);
+        image.addEventListener('keydown', event => {
+          if (!['Enter', ' '].includes(event.key)) return;
+          event.preventDefault();
+          image.click();
+        });
+      });
+      new MutationObserver(update).observe(track, {subtree: true, attributes: true, attributeFilter: ['class']});
+      update();
+      return true;
+    };
+    if (init()) return;
+    const observer = new MutationObserver(() => { if (init()) observer.disconnect(); });
+    observer.observe(gallery, {childList: true, subtree: true});
+  });
+})();
