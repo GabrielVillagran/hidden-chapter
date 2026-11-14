@@ -24,6 +24,63 @@ body.page .wp-site-blocks > main:has(.ellamara-contact-layout) > :is(.wp-block-p
 }
 .ellamara-catalog { max-width: none !important; padding-inline: 0 !important; }
 .ellamara-catalog > .alignwide { max-width: none !important; }
+/* Give informational and catalog headings a quiet surface over the artwork. */
+body.page .wp-site-blocks > main > h1.wp-block-post-title,
+body.home main .ellamara-catalog > h1,
+body.home main .ellamara-home-catalog-entry,
+main .ellamara-catalog-introduction {
+  background-color: #330a0ae6;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+body.page .wp-site-blocks > main > h1.wp-block-post-title,
+body.home main .ellamara-catalog > h1,
+main .ellamara-catalog-introduction h1 {
+  color: #e3c389;
+  font-size: clamp(1.65rem, 3vw, 2.65rem) !important;
+  font-weight: 700;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+body.page .wp-site-blocks > main > h1.wp-block-post-title {
+  width: min(100%, 64rem);
+  margin: 0 auto 1.25rem !important;
+  padding: clamp(1rem, 3vw, 1.75rem);
+  border: 1px solid #e3c38940;
+  border-radius: 14px;
+  text-align: center;
+}
+main .ellamara-faq-intro {
+  margin-inline: auto;
+  text-align: center;
+}
+body.home main .ellamara-catalog > h1,
+body.home main .ellamara-home-catalog-entry,
+main .ellamara-catalog-introduction {
+  padding-inline: clamp(1rem, 3vw, 1.75rem);
+}
+body.home main .ellamara-catalog > h1 {
+  margin-block: 0;
+  padding-block: 1.25rem .4rem;
+  border-radius: 14px 14px 0 0;
+}
+body.home main .ellamara-home-catalog-entry {
+  margin-block-start: 0;
+  padding-block-end: 1rem;
+  border-radius: 0 0 14px 14px;
+}
+body.home .ellamara-home-catalog-entry .ellamara-catalog-subtitle { margin: 0 0 .85rem; }
+body.home .ellamara-home-catalog-entry .ellamara-categories { margin-block: 0; }
+body.home .ellamara-header { padding-block-end: .75rem; }
+body.home .ellamara-catalog { padding-block-start: .75rem; }
+@media (max-width: 600px) {
+  body.home .ellamara-home-catalog-entry .ellamara-categories { flex-wrap: wrap; }
+}
+main .ellamara-catalog-introduction {
+  padding-block: 1.25rem;
+  border-radius: 14px;
+}
+main .ellamara-catalog-introduction::before { content: none; }
 .ellamara-story {
   margin-inline: calc(-1 * var(--ellamara-page-gutter)) !important;
   padding-inline: var(--ellamara-page-gutter) !important;

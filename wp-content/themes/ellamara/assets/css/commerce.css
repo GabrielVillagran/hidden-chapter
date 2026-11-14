@@ -8,6 +8,10 @@ body {
   background-attachment: scroll !important;
   color: var(--wp--preset--color--rose, #db9ab1);
 }
+body.home {
+  background-repeat: repeat-y !important;
+  background-size: max(100%, 620px) auto !important;
+}
 .wp-site-blocks, .wp-site-blocks > header, .wp-site-blocks > main, .wp-site-blocks > footer,
 .ellamara-header, .ellamara-footer, .ellamara-story, .ellamara-hero, .ellamara-catalog {
   background-color: transparent !important;

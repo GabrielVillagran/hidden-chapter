@@ -33,6 +33,10 @@ add_action('wp_enqueue_scripts', static function (): void {
     wp_enqueue_style('ellamara-footer', get_theme_file_uri('/assets/css/footer.css'), ['ellamara-commerce'], (string) filemtime(get_theme_file_path('/assets/css/footer.css')));
     wp_enqueue_style('ellamara-experience', get_theme_file_uri('/assets/css/experience.css'), ['ellamara-footer', 'ellamara-navigation'], (string) filemtime(get_theme_file_path('/assets/css/experience.css')));
     wp_enqueue_style('ellamara-story', get_theme_file_uri('/assets/css/story.css'), ['ellamara-experience'], (string) filemtime(get_theme_file_path('/assets/css/story.css')));
+    if (is_page(['terminos-y-condiciones', 'devoluciones', 'cambios-y-garantias'])) {
+        $terms = '/assets/css/terms.css';
+        wp_enqueue_style('ellamara-terms', get_theme_file_uri($terms), ['ellamara-experience'], (string) filemtime(get_theme_file_path($terms)));
+    }
     if (is_page(['preguntas-frecuentes', 'envios'])) {
         wp_enqueue_style('ellamara-faq', get_theme_file_uri('/assets/css/faq.css'), ['ellamara-experience'], (string) filemtime(get_theme_file_path('/assets/css/faq.css')));
     }

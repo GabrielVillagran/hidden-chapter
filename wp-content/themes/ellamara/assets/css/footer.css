@@ -1,5 +1,10 @@
 /* Native blocks remain editable in the Site Editor. */
-.ellamara-store-footer { padding-block: clamp(3rem, 6vw, 5rem) 1.5rem; }
+.ellamara-footer.ellamara-store-footer {
+  padding-block: clamp(3rem, 6vw, 5rem) 1.5rem;
+  background-color: #260808e0 !important;
+  backdrop-filter: blur(7px);
+  box-shadow: inset 0 1px #e3c38940;
+}
 .ellamara-store-footer .ellamara-footer-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.45fr) repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 2.5rem); align-items: start; }
 .ellamara-store-footer .ellamara-footer-grid > * { margin: 0; min-width: 0; }
 .ellamara-footer-identity .wp-block-site-logo { margin: 0 0 .5rem; }

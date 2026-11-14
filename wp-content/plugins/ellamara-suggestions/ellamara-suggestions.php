@@ -13,7 +13,7 @@ defined('ABSPATH') || exit;
 function eligible($product): bool {
     return $product instanceof \WC_Product && $product->get_status() === 'publish'
         && in_array($product->get_catalog_visibility(), ['visible', 'catalog'], true)
-        && $product->is_in_stock() && $product->is_purchasable();
+        && $product->is_in_stock();
 }
 
 function terms(int $id, string $taxonomy): array {
@@ -93,7 +93,7 @@ add_action('rest_api_init', static function (): void {
 
 add_shortcode('ellamara_suggestions', static function (): string {
     $selection = recommendations([], '');
-    return '<section class="ellamara-suggestions" aria-label="Sugerencias de la tienda"><div class="ellamara-suggestions-intro"><div><h2>Tu próxima historia puede estar aquí</h2><p class="ellamara-suggestions-message" role="status">' . esc_html($selection['message']) . '</p></div><button type="button" class="ellamara-suggestions-reset" hidden>Restablecer sugerencias</button></div><p class="ellamara-suggestions-privacy">Sin servicios de analítica: usamos solo la actividad de esta pestaña durante la sesión. Puedes restablecerla cuando quieras.</p><div class="ellamara-suggestions-results">' . $selection['html'] . '</div></section>';
+    return '<section class="ellamara-suggestions" aria-label="Sugerencias de la tienda"><div class="ellamara-suggestions-intro"><div><p class="ellamara-suggestions-message" role="status">' . esc_html($selection['message']) . '</p></div><button type="button" class="ellamara-suggestions-reset" hidden>Restablecer sugerencias</button></div><p class="ellamara-suggestions-privacy">Las sugerencias pueden usar tu actividad reciente en esta pestaña. <a href="' . esc_url(home_url('/terminos-y-condiciones/#sugerencias')) . '">Cómo funcionan las sugerencias</a></p><div class="ellamara-suggestions-results">' . $selection['html'] . '</div></section>';
 });
 
 add_action('wp_enqueue_scripts', static function (): void {

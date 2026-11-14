@@ -31,7 +31,6 @@
 .wc-block-components-validation-error p { color: inherit; }
 .wc-block-cart-item__remove-link, .wc-block-components-drawer__close { min-height: 44px; min-width: 44px; }
 @media (max-width: 600px) {
-  .ellamara-header .ellamara-header-row { grid-template-columns: minmax(0, 1fr) 140px; }
   .ellamara-purchase-steps { font-size: .9rem; gap: .75rem; padding: .5rem .75rem; }
   .wc-block-cart .wc-block-cart__main, .wc-block-cart .wc-block-cart__sidebar,
   .wc-block-checkout .wc-block-checkout__main, .wc-block-checkout .wc-block-checkout__sidebar { padding: 1rem; }

@@ -25,13 +25,15 @@
   const message = root.querySelector('.ellamara-suggestions-message');
   const results = root.querySelector('.ellamara-suggestions-results');
   const reset = root.querySelector('.ellamara-suggestions-reset');
+  const generalResults = results.innerHTML;
+  const generalMessage = message.textContent;
   let requestNumber = 0;
   async function load() {
     const number = ++requestNumber;
     root.setAttribute('aria-busy', 'true');
     reset.disabled = true;
     try {
-      const response = await fetch(config.endpoint, {method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({views: activity.views, search: activity.search})});
+      const response = await fetch(config.endpoint, {method: 'POST', credentials: 'omit', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({views: activity.views, search: activity.search})});
       if (!response.ok) throw new Error('Catalog unavailable');
       const selection = await response.json();
       if (number !== requestNumber) return;
@@ -46,11 +48,16 @@
       }
     }
   }
-  reset.hidden = false;
+  reset.hidden = !(activity.views.length || activity.search);
   reset.addEventListener('click', () => {
     activity = {views: [], search: '', expires: 0};
     try { sessionStorage.removeItem(key); } catch (_) {}
-    load();
+    ++requestNumber;
+    results.innerHTML = generalResults;
+    message.textContent = generalMessage;
+    root.removeAttribute('aria-busy');
+    reset.disabled = false;
+    reset.hidden = true;
   });
   if (activity.views.length || activity.search) load();
 })();
