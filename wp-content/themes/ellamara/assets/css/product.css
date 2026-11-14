@@ -150,3 +150,24 @@
 .single-product .woocommerce-product-gallery .flex-control-thumbs img:is(.flex-active, :focus-visible) {
   border-color: #784522;
 }
+
+.ellamara-gallery-collections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+  margin-top: .65rem;
+}
+.ellamara-gallery-collections button {
+  flex: 1;
+  min-height: 44px;
+  padding: .4rem .6rem;
+  border: 1px solid #784522;
+  border-radius: 8px;
+  background: #f2ebdd;
+  color: #330a0a;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+.ellamara-gallery-collections button:hover { background: #e5d2ad; }
+.single-product main .ellamara-gallery-collections button:focus-visible { outline-color: #784522; }

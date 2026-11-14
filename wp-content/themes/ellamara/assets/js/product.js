@@ -62,6 +62,22 @@
           image.click();
         });
       });
+      const dragon = images.find(image => image.src.includes('marcapaginas-dragon-'));
+      const ghost = images.find(image => image.src.includes('marcapaginas-fantasma-'));
+      if (dragon && ghost) {
+        const collections = document.createElement('div');
+        collections.className = 'ellamara-gallery-collections';
+        collections.setAttribute('role', 'group');
+        collections.setAttribute('aria-label', 'Colecciones de marcapáginas');
+        [['Dragones', dragon], ['Fantasmas', ghost]].forEach(([name, image]) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.textContent = name;
+          button.addEventListener('click', () => image.click());
+          collections.append(button);
+        });
+        track.before(collections);
+      }
       new MutationObserver(update).observe(track, {subtree: true, attributes: true, attributeFilter: ['class']});
       update();
       return true;
