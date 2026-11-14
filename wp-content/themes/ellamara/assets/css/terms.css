@@ -1,0 +1,48 @@
+/* Keep the artwork visible past the first image-height on long pages. */
+body {
+  background-repeat: repeat-y !important;
+  background-size: max(100%, 620px) auto !important;
+}
+
+.ellamara-terms {
+  max-width: 64rem;
+  margin-inline: auto;
+  font-family: var(--wp--preset--font-family--interface);
+}
+.ellamara-terms-intro {
+  max-width: 60ch;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+  color: #f2ebdd;
+}
+.ellamara-terms-panel {
+  padding: clamp(1rem, 4vw, 2.75rem);
+  border-radius: 16px;
+  background: #f2ebdd;
+  color: #27181a;
+  line-height: 1.65;
+}
+.ellamara-terms-panel h2 {
+  margin: 0 0 .6rem;
+  color: #641e33;
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+}
+.ellamara-terms-panel a { color: #641e33; overflow-wrap: anywhere; }
+.ellamara-terms-panel nav ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .25rem 1.5rem;
+  padding-inline-start: 1.25rem;
+  margin-block: 0;
+}
+.ellamara-terms-panel nav a { display: inline-flex; align-items: center; min-height: 44px; }
+.ellamara-terms-panel section {
+  margin-block-start: 1.5rem;
+  padding-block-start: 1.5rem;
+  border-top: 1px solid #641e3338;
+  scroll-margin-top: 3rem;
+}
+.ellamara-terms-panel p { max-width: 70ch; margin: .55rem 0 0; }
+@media (max-width: 600px) {
+  .ellamara-terms-panel nav ul { grid-template-columns: minmax(0, 1fr); }
+}

@@ -47,7 +47,7 @@ details.ellamara-international-shipping { display: block; padding: .4rem 1rem; m
  .ellamara-browse-status { display: flex; flex-wrap: wrap; margin-top: .5rem; padding-top: .35rem; gap: 0 .8rem; }
  .ellamara-browse-status .ellamara-suggestions-link { margin-left: auto; font-size: .8rem; }
  .home .ellamara-catalog-subtitle { margin-bottom: .75rem; }
- main .ellamara-catalog h1, .ellamara-catalog-introduction h1 { font-size: 1.65rem; }
+ .ellamara-catalog-introduction h1 { font-size: 1.65rem; }
  details.ellamara-international-shipping { margin-block: .5rem 1rem; }
  .ellamara-international-shipping > summary span { display: none; }
 }

@@ -174,8 +174,9 @@ function pills(): string {
     if ($suggestions && $suggestions->post_status === 'publish') {
         $status .= '<a class="ellamara-suggestions-link" href="' . esc_url(get_permalink($suggestions)) . '">Artículos sugeridos <span aria-hidden="true">→</span></a>';
     }
-    $intro = is_front_page() ? '<p class="ellamara-catalog-subtitle alignwide">Descubre libros y accesorios para acompañarte en cada nueva aventura.</p>' : '';
-    return catalog_introduction() . $intro . '<section class="ellamara-browse alignwide" aria-label="Explorar el catálogo">' . category_navigation() . $html . $status . '</div></section>';
+    $categories = category_navigation();
+    $intro = is_front_page() ? '<div class="ellamara-home-catalog-entry alignwide"><p class="ellamara-catalog-subtitle">Descubre libros y accesorios para acompañarte en cada nueva aventura.</p>' . $categories . '</div>' : '';
+    return catalog_introduction() . $intro . '<section class="ellamara-browse alignwide" aria-label="Explorar el catálogo">' . ($intro === '' ? $categories : '') . $html . $status . '</div></section>';
 }
 
 /** Category switches are separate from genre filters and clear the prior search. */

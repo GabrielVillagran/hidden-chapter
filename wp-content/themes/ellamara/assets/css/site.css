@@ -15,11 +15,23 @@ a { text-underline-offset: .22em; }
   outline-offset: 5px;
 }
 .wp-block-button__link { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
-.ellamara-header { padding: 24px 40px; margin-block: 0; }
-.ellamara-header-row { gap: clamp(1rem, 3vw, 3rem); }
-.ellamara-brand { gap: 20px; min-width: 0; }
-.ellamara-brand .wp-block-site-logo { flex-shrink: 0; }
-.ellamara-header .wp-block-site-title { font-size: clamp(1.35rem, 3.2vw, 3.75rem); font-weight: 700; line-height: 1.15; margin: 0; }
+.ellamara-header { position: relative; padding: clamp(1rem, 2.4vw, 2rem) 40px; margin-block: 0; }
+.ellamara-header::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to bottom, #330a0abf 78%, #330a0a70);
+  backdrop-filter: blur(4px);
+}
+.ellamara-header-row { position: relative; }
+.ellamara-header .ellamara-brand {
+  display: flex; flex-direction: column; align-items: center; gap: .35rem;
+  min-width: 0; text-align: center;
+}
+.ellamara-brand .wp-block-site-logo { margin: 0; }
+.ellamara-brand .wp-block-site-logo img { display: block; width: clamp(96px, 12vw, 156px); }
+.ellamara-header .wp-block-site-title {
+  color: #e3c389; font-size: clamp(1.875rem, 4vw, 3.5rem);
+  font-weight: 700; line-height: 1.1; margin: 0; text-wrap: balance;
+}
 .ellamara-header .wp-block-site-title a { text-decoration: none; }
 .ellamara-header-actions { gap: 8px; flex-shrink: 0; align-items: center; }
 /* Isolate native block spacing without affecting the cart drawer or open menu. */
@@ -45,13 +57,13 @@ a { text-underline-offset: .22em; }
 }
 /* Search stays visible; only the header layout changes at smaller widths. */
 .ellamara-header .ellamara-header-row {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 440px) auto;
-  grid-template-areas: "brand search actions"; gap: 24px; align-items: center;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "brand brand" "search actions";
+  gap: 1rem .75rem; align-items: center; max-width: 46rem; margin-inline: auto;
 }
 .ellamara-brand { grid-area: brand; }
 .ellamara-header-actions { grid-area: actions; }
 .ellamara-header-search { grid-area: search; width: 100%; min-width: 0; margin: 0; }
-.ellamara-header .wp-block-site-title { font-size: clamp(1.35rem, 2.25vw, 2.75rem); }
 .ellamara-header-search .wp-block-search__inside-wrapper {
   display: flex; align-items: stretch; padding: 0; min-height: 46px;
   background: var(--ellamara-ivory); border: 1px solid var(--ellamara-gold); border-radius: 6px;
@@ -68,11 +80,6 @@ a { text-underline-offset: .22em; }
 .ellamara-header-search .wp-block-search__button:hover { background: #b08a4a25; }
 .ellamara-header-search .wp-block-search__button svg { width: 26px; height: 26px; }
 .ellamara-header-search :is(input, button):focus-visible { outline-color: var(--ellamara-burgundy); outline-offset: -3px; }
-@media (max-width: 1000px) {
-  .ellamara-header .ellamara-header-row {
-    grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "brand actions" "search search"; gap: 16px;
-  }
-}
 .ellamara-header .wp-block-navigation__responsive-container.is-menu-open { background: var(--ellamara-burgundy); color: var(--ellamara-gold); }
 .ellamara-footer-row { gap: 3rem; }
 .ellamara-footer-brand { max-width: 40rem; }
@@ -105,14 +112,7 @@ a { text-underline-offset: .22em; }
 .woocommerce div.product .woocommerce-tabs ul.tabs li a { color: var(--ellamara-charcoal); }
 @media (max-width: 600px) {
   .ellamara-header { padding: 16px; }
-  .ellamara-header-row { flex-wrap: wrap !important; }
-  .ellamara-brand { flex: 1 1 100%; gap: 12px; }
-  .ellamara-brand .wp-block-site-logo { width: 68px; }
-  .ellamara-brand .wp-block-site-logo img { width: 68px; }
-  .ellamara-header .wp-block-site-title { font-size: 1.35rem; }
-  .ellamara-header-actions { width: auto; justify-content: flex-end; }
-  .ellamara-header .ellamara-header-row { grid-template-areas: "brand brand" "search actions"; gap: 16px 8px; }
-  .ellamara-header .wp-block-search { flex-basis: 100%; }
+  .ellamara-header-actions { gap: 0; }
   .ellamara-hero::before { inset: .6rem; }
 }
 @media (prefers-reduced-motion: reduce) {
